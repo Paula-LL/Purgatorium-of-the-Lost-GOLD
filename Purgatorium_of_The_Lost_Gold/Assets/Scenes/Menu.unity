@@ -583,7 +583,7 @@ MonoBehaviour:
   botonSalir: {fileID: 765355402}
   botonAyuda: {fileID: 2086580213}
   botonCreditos: {fileID: 2017909331}
-  nombreEscena: lujuria
+  nombreEscena: base
   canvasActivar: {fileID: 643976757}
   canvasDesactivar: {fileID: 519372726}
   canvasActivarAyuda: {fileID: 687755685}
