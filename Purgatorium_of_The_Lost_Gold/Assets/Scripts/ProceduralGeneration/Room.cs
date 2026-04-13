@@ -31,6 +31,7 @@ public class Room : MonoBehaviour
 
     public void OnEnterRoom()
     {
+
         Cinemachine.CinemachineVirtualCamera currentActiveCam = (Cinemachine.CinemachineVirtualCamera)GetBrain().ActiveVirtualCamera;
         if (currentActiveCam != null && currentActiveCam != cam)
         {

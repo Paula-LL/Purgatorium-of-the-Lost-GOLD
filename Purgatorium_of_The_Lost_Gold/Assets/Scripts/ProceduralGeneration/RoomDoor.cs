@@ -16,11 +16,20 @@ public class RoomDoor : MonoBehaviour
         room = GetComponentInParent<Room>();
 #endif
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            Debug.Log("Contacto");
+            Collider [] hits = Physics.OverlapSphere(transform.position, 20);
+            foreach (Collider c in hits)
+            {
+                if (c.GetComponent<RoomDoor>() != null && c != this.gameObject.GetComponent<Collider>())
+                {
+                    Debug.Log("Teletransp");
+                    other.transform.position = c.transform.position;
+                }
+            }
             room.OnEnterRoom();
         }
     }
