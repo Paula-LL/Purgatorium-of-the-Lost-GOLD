@@ -32,6 +32,7 @@ public class Ataque1 : MonoBehaviour
     private bool         faseAtaqueActiva = false;
     private MeshRenderer visualizador;
     public Material     materialZona;
+    public GameObject boss;
     public Color colour;
 
     void Start()
@@ -53,7 +54,10 @@ public class Ataque1 : MonoBehaviour
             if (obj != null) jugador = obj.transform;
             return;
         }
-
+        if (boss.GetComponent<BossHealth>().EstaMuerto == true)
+        {
+            return;
+        }
         float distancia = Vector3.Distance(transform.position, jugador.position);
 
         if (distancia <= rangoDeteccion && !cicloEnCurso)

@@ -42,6 +42,7 @@ public class Ataque2 : MonoBehaviour
     private float        anguloActual     = 0f;
     private MeshRenderer visualizador;
     public  Material     materialZona;
+    public GameObject boss;
     public Color colour;
 
     void Start()
@@ -69,6 +70,10 @@ public class Ataque2 : MonoBehaviour
         {
             GameObject obj = GameObject.FindGameObjectWithTag(etiquetaJugador);
             if (obj != null) jugador = obj.transform;
+            return;
+        }
+        if (boss.GetComponent<BossHealth>().EstaMuerto == true)
+        {
             return;
         }
 

@@ -39,8 +39,8 @@ public class PlayerStats
 
         attackSpeed = 1f;
 
-        attackRadius = 0.4f;
-        attackDistance = 1.2f;
+        attackRadius = 3f;
+        attackDistance = 2f;
         attackDuration = 0.2f;
 
         movement = new Movement();

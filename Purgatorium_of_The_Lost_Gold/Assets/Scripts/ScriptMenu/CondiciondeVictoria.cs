@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ public class CondiciondeVictoria : MonoBehaviour
     [Tooltip("Tag del objeto Boss que debe ser destruido")]
     public string bossTag = "Boss";
 
-    private GameObject bossObject;
+    public GameObject bossObject;
     private bool bossDestruido = false;
 
     void Start()
@@ -31,12 +32,12 @@ public class CondiciondeVictoria : MonoBehaviour
     void Update()
     {
         // Verificar si el boss ha sido destruido
-        if (!bossDestruido && bossObject == null)
+        if (!bossDestruido)
         {
             // Buscar nuevamente por si acaso el objeto fue destruido pero la referencia no se actualizó
             GameObject boss = GameObject.FindGameObjectWithTag(bossTag);
 
-            if (boss == null)
+            if (bossObject.GetComponent<BossHealth>().EstaMuerto == true)
             {
                 BossDestruido();
             }
@@ -56,8 +57,8 @@ public class CondiciondeVictoria : MonoBehaviour
         // Cambiar a la escena indicada
         if (!string.IsNullOrEmpty(sceneName))
         {
-           
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(muerteDelBoss());
+            
         }
         else
         {
@@ -74,5 +75,12 @@ public class CondiciondeVictoria : MonoBehaviour
             // Por ejemplo: bossHealth.OnBossDied += BossDestruido;
             Debug.Log("Suscrito al sistema de salud del boss");
         }
+    }
+    IEnumerator muerteDelBoss()
+    {
+        bossObject.GetComponent<Animator>().SetBool("Die", true);
+        yield return new WaitForSecondsRealtime(8f);
+        Destroy(bossObject);
+        SceneManager.LoadScene(sceneName);
     }
 }

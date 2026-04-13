@@ -1771,6 +1771,7 @@ GameObject:
   - component: {fileID: 7164817884643597691}
   - component: {fileID: 8697529000308491760}
   - component: {fileID: 4660466148651104238}
+  - component: {fileID: 4417932106004509670}
   m_Layer: 0
   m_Name: Dante
   m_TagString: Player
@@ -1838,7 +1839,7 @@ CapsuleCollider:
   m_Radius: 0.6730635
   m_Height: 3.0000002
   m_Direction: 1
-  m_Center: {x: 0, y: 1.3, z: 0.17306343}
+  m_Center: {x: 0, y: 1.4, z: 0.17306343}
 --- !u!120 &4880002971264423364
 LineRenderer:
   serializedVersion: 2
@@ -2088,8 +2089,8 @@ MonoBehaviour:
     critChance: 0.1
     critMultiplier: 2
     attackSpeed: 1
-    attackRadius: 0.4
-    attackDistance: 1.2
+    attackRadius: 5
+    attackDistance: 5
     attackDuration: 0.2
     movement:
       moveSpeed: 5
@@ -2121,6 +2122,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifierAttackList: []
   animator: {fileID: 3401779441907676056}
+--- !u!54 &4417932106004509670
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893025735077483930}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &930991159983760200
 GameObject:
   m_ObjectHideFlags: 0
