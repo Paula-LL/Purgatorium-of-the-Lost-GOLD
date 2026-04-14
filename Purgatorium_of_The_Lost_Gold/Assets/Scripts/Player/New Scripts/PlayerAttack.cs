@@ -20,11 +20,14 @@ public class PlayerAttack : MonoBehaviour
     private Player_controller player;
     public Animator animator;
 
+    private AttackSequenceControler attackSequenceControler;
+
     void Start()
     {
         player = Player_controller.instance;
+        attackSequenceControler = GetComponent<AttackSequenceControler>();
 
-        rend = GetComponent<Renderer>();
+       /* rend = GetComponent<Renderer>();
         originalColor = rend.material.color;
 
         lineRenderer = GetComponent<LineRenderer>();
@@ -34,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.red;
-        lineRenderer.enabled = false;
+        lineRenderer.enabled = false;*/
     }
 
     void Update()
@@ -65,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
             attack.attackDamage = finalDamage;
 
             AttackEnemies(attack);
-            DrawAttackCircle(attack);
+            //DrawAttackCircle(attack);
             lineRenderer.enabled = true;
         }
 
@@ -117,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    void DrawAttackCircle(Attack attack)
+    /*void DrawAttackCircle(Attack attack)
     {
         Vector3 center = transform.position + transform.forward * attack.attackDistance;
         for (int i = 0; i <= attack.circleSegments; i++)
@@ -128,7 +131,7 @@ public class PlayerAttack : MonoBehaviour
             Vector3 pos = center + new Vector3(x, 0, z);
             lineRenderer.SetPosition(i, pos);
         }
-    }
+    }*/
 
     internal void AddModifier(AttackModifier cardsBuff)
     {
