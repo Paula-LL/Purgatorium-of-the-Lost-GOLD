@@ -6,10 +6,11 @@ public class AttackSequenceControler : MonoBehaviour
 {
     private Animator anim;
     public float coolDownTime;
-    private float nextFireTime = 0.5f;
+    private float nextFireTime = 2.5f;
     public static int noOfClicks = 0;
     private float lastClickedTime = 0f;
-    private float maxComboDelay = 1; 
+    private float maxComboDelay = 1;
+    private float timeSinceLastAttack = 1f; 
 
     void Start()
     {
@@ -36,20 +37,25 @@ public class AttackSequenceControler : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("A_seq4"))
         {
             anim.SetBool("A_seq4", false);
-            noOfClicks = 0;
+            //noOfClicks = 0;
         }
 
         if (Time.time - lastClickedTime > maxComboDelay)
         {
-            noOfClicks = 0;
-        }
-        if (Time.time > nextFireTime)
+            anim.SetBool("A_seq1", false);
+            //noOfClicks = 0;
+        }//variable cooldown float to calc time since last attack
+        if (timeSinceLastAttack > nextFireTime)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                lastClickedTime = Time.time;
+                timeSinceLastAttack = 0f;
                 OnClick();
             }
         }
+        else
+            timeSinceLastAttack += Time.deltaTime;
     }
 
     /*private void SetClicks() { 
@@ -96,8 +102,9 @@ public class AttackSequenceControler : MonoBehaviour
 
         noOfClicks = Mathf.Clamp(noOfClicks, 0, 4);
 
-        if (noOfClicks >= 2 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("A_seq1")) {
-            anim.SetBool("A_seq1", false);
+        if (noOfClicks >= 2) // && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("A_seq1"))
+        {
+            //anim.SetBool("A_seq1", false);
             anim.SetBool("A_seq2", true);
         }
 

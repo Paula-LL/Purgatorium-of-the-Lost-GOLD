@@ -2364,7 +2364,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 400537794723243019, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -79.65
+      value: -85.45
       objectReference: {fileID: 0}
     - target: {fileID: 400537794723243019, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2372,7 +2372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400537794723243019, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.85
+      value: 12.41
       objectReference: {fileID: 0}
     - target: {fileID: 400537794723243019, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2408,6 +2408,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2961150752727204772, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
       propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961150752727204772, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
+      propertyPath: stats.moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961150752727204772, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
+      propertyPath: stats.baseDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961150752727204772, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
+      propertyPath: stats.attackDamage
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
