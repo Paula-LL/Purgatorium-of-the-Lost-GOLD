@@ -6,7 +6,7 @@ using static PlayerStats;
 /// <summary>
 /// Paula PlayerController
 /// </summary>
-[RequireComponent(typeof(CharacterController))]
+
 public class Player_controller : MonoBehaviour
 {
     public static Player_controller playerController;
@@ -30,10 +30,10 @@ public class Player_controller : MonoBehaviour
     public PlayerStats.Movement currentMovement;
 
     public Animator animator;
-    private CharacterController controller;
+    
     private Vector3 moveDirection;
     private bool isDashing = false;
-    private float dashTimeLeft = 0f;
+    private float dashTimeLeft = 2f;
 
     public List<LoversNormalModifier> loversBaseModifierList = new List<LoversNormalModifier>();
     public List<LoversInvertedModifier> loversInvertedModifierList = new List<LoversInvertedModifier>();
@@ -55,7 +55,7 @@ public class Player_controller : MonoBehaviour
     {
         currentPlayerStats = new PlayerStats();
         currentMovement = currentPlayerStats.movement;
-        controller = GetComponent<CharacterController>();
+        
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
     }
@@ -108,7 +108,8 @@ public class Player_controller : MonoBehaviour
         }
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
-        controller.Move(moveDirection * speed * Time.deltaTime);
+
+        this.transform.position = this.transform.position + (moveDirection * speed * Time.deltaTime);
 
         
     }

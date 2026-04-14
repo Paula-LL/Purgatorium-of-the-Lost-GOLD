@@ -1969,6 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1623fbf05a4dcf4dae6f3db666079ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasFader: {fileID: 1786392994}
   _dungeonRoomInstances: []
   roomPrefabs:
   - {fileID: 7986240178955837915, guid: 9c87676cadc5b3e4aa21de9bb4fb7b52, type: 3}
@@ -1981,6 +1982,7 @@ MonoBehaviour:
   - {fileID: 1064309303112416945, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
   - {fileID: 1064309303112416945, guid: 15bab123cf9c53f4d95ccbcd70ab3205, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}
+  teletransportadorSeguro: 1
 --- !u!114 &2136938231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: 22.6
       objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.z

@@ -9,7 +9,7 @@ using UnityEditor;
 public class RoomDoor : MonoBehaviour
 {
     [SerializeField] Room room;
-    private bool teletransPortSeguro = true;
+    
     private void Reset()
     {
 #if UNITY_EDITOR
@@ -19,7 +19,7 @@ public class RoomDoor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && teletransPortSeguro == true)
+        if (other.tag == "Player" && DungeonGenerator.s.teletransportadorSeguro == true)
         {
             Debug.Log("Contacto");
             Collider [] hits = Physics.OverlapSphere(transform.position, 15);
@@ -27,25 +27,23 @@ public class RoomDoor : MonoBehaviour
             {
                 if (c.GetComponent<RoomDoor>() != null && c != this.GetComponent<Collider>() && c.GetComponent<Collider>().gameObject != this.gameObject)
                 {
+                    DungeonGenerator.s.teletransportadorSeguro = false;
                     Vector3 posTeletrans = c.transform.position;
-                    posTeletrans.y = other.transform.position.y;
-                    other.GetComponent<CharacterController>().Move(posTeletrans);
-                    other.transform.position = posTeletrans;
+                    other.transform.position = posTeletrans;   
                     Debug.Log("Teletransp a " + c.GetComponentInParent<Room>().name + "en posició " + posTeletrans);
-                  
+                    StartCoroutine(DungeonGenerator.s.fadeInfadeOut());
+                    StartCoroutine(teletranspDelay());
+                    c.GetComponentInParent<Room>().OnEnterRoom();
                 }
             }
-            StartCoroutine(teletranspDelay());
-            room.OnEnterRoom();
-            StopAllCoroutines();
+           
         }
     }
-
     IEnumerator teletranspDelay()
     {
-        teletransPortSeguro = false;
-        yield return new WaitForSecondsRealtime(1f);
-        teletransPortSeguro = true; 
+        
+        yield return new WaitForSecondsRealtime(3f);
+        DungeonGenerator.s.teletransportadorSeguro = true; 
     }
 
 }

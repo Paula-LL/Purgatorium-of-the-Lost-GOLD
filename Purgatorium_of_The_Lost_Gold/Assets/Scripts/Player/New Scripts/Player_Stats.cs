@@ -51,7 +51,7 @@ public class PlayerStats
     {
         public float moveSpeed = 5f;
         public float dashSpeed = 20f;
-        public float dashDuration = 0.1f;
+        public float dashDuration = 0.5f;
         public float rotationSpeed = 10f;
 
         public Movement() { }

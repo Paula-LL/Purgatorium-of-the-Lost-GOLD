@@ -13,7 +13,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        if (thisRoom.transform.position == new Vector3(0, 2, 0))
+        if (thisRoom.transform.position == new Vector3(0, 20, 0))
         {
             cam.Priority = defaultCameraOnlinePriority;
         }
@@ -41,10 +41,11 @@ public class Room : MonoBehaviour
             }
         }
         cam.Priority = defaultCameraOnlinePriority;
+        DungeonGenerator.s.SpawmEnemiesInEnterRoom(this);   
     }
     public GameObject returnSpawnEnemiesPoint()
     {
         return spawnEnemyPoints;
     }
-
+    
 }
