@@ -4,17 +4,17 @@ using UnityEngine;
 /// <summary>
 /// Player Attack de Paula
 /// </summary>
-[RequireComponent(typeof(Renderer))]
-[RequireComponent(typeof(LineRenderer))]
+/*[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(LineRenderer))]*/
 public class PlayerAttack : MonoBehaviour
 {
     private bool isAttacking = false;
     private float attackTimer = 0f;
     private float attackCooldown = 0f;
 
-    private Renderer rend;
+    /*private Renderer rend;
     private Color originalColor;
-    private LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;*/
     public List<AttackModifier> modifierAttackList = new List<AttackModifier>();
 
     private Player_controller player;
@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
 
             attackCooldown = 1f / player.currentPlayerStats.attackSpeed;
 
-            rend.material.color = Color.red;
+            //rend.material.color = Color.red;
 
             Attack attack = new Attack(player.currentPlayerStats);
             ApplyAttackModifiers(attack);
@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
             AttackEnemies(attack);
             //DrawAttackCircle(attack);
-            lineRenderer.enabled = true;
+            //lineRenderer.enabled = true;
         }
 
         if (isAttacking)
@@ -79,8 +79,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 isAttacking = false;
                 animator.SetBool("isAttacking", false);
-                rend.material.color = originalColor;
-                lineRenderer.enabled = false;
+                //rend.material.color = originalColor;
+                //lineRenderer.enabled = false;
             }
         }
     }

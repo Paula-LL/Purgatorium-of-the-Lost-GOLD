@@ -52,7 +52,7 @@ public class AttackSequenceControler : MonoBehaviour
         }
     }
 
-    private void SetClicks() { 
+    /*private void SetClicks() { 
         if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && anim.GetCurrentAnimatorStateInfo(0).IsName("A_seq1"))
         {
             anim.SetBool("A_seq1", false);
@@ -83,7 +83,7 @@ public class AttackSequenceControler : MonoBehaviour
             }
         }
 
-    }
+    }*/
     //attack stuck in loop after A_seq1 is done
     private void OnClick()
     {
