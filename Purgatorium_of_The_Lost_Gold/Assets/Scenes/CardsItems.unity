@@ -4338,6 +4338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dante
       objectReference: {fileID: 0}
+    - target: {fileID: 3401779441907676056, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1ebf2bc440427b64bb9abfed88f84dd4, type: 2}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.x
       value: -91.524025
