@@ -9,6 +9,7 @@ using UnityEditor;
 public class RoomDoor : MonoBehaviour
 {
     [SerializeField] Room room;
+    private bool teletransPortSeguro = true;
     private void Reset()
     {
 #if UNITY_EDITOR
@@ -18,21 +19,33 @@ public class RoomDoor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && teletransPortSeguro == true)
         {
             Debug.Log("Contacto");
-            Collider [] hits = Physics.OverlapSphere(transform.position, 20);
+            Collider [] hits = Physics.OverlapSphere(transform.position, 15);
             foreach (Collider c in hits)
             {
-                if (c.GetComponent<RoomDoor>() != null && c != this.gameObject.GetComponent<Collider>())
+                if (c.GetComponent<RoomDoor>() != null && c != this.GetComponent<Collider>() && c.GetComponent<Collider>().gameObject != this.gameObject)
                 {
-                    Debug.Log("Teletransp");
-                    other.transform.position = c.transform.position;
+                    Vector3 posTeletrans = c.transform.position;
+                    posTeletrans.y = other.transform.position.y;
+                    other.GetComponent<CharacterController>().Move(posTeletrans);
+                    other.transform.position = posTeletrans;
+                    Debug.Log("Teletransp a " + c.GetComponentInParent<Room>().name + "en posició " + posTeletrans);
+                  
                 }
             }
+            StartCoroutine(teletranspDelay());
             room.OnEnterRoom();
+            StopAllCoroutines();
         }
     }
 
+    IEnumerator teletranspDelay()
+    {
+        teletransPortSeguro = false;
+        yield return new WaitForSecondsRealtime(1f);
+        teletransPortSeguro = true; 
+    }
 
 }
