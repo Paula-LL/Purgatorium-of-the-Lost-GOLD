@@ -1081,7 +1081,7 @@ MonoBehaviour:
   salirButton: {fileID: 51193996}
   escenaMenu: Menu
   escenaVictoria: Victoria
-  animator: {fileID: 5889267148064705005}
+  animator: {fileID: 0}
 --- !u!1 &851552285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1489,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013996e0185e7214db9bfb2538410eea, type: 3}
+--- !u!1001 &1061370870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1625734756434545098, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_Name
+      value: Dante Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086620181322078624, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1704271162}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
 --- !u!224 &1268006645 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3630619288610495163, guid: 013996e0185e7214db9bfb2538410eea, type: 3}
@@ -1505,11 +1566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1304692204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 893025735077483930, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-  m_PrefabInstance: {fileID: 422662975812090990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1336182247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,107 +2062,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   sceneName: GameOver
---- !u!1001 &422662975812090990
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 893025735077483930, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_Name
-      value: Dante
-      objectReference: {fileID: 0}
-    - target: {fileID: 942038693058484784, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_Center.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401779441907676056, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ebf2bc440427b64bb9abfed88f84dd4, type: 2}
-    - target: {fileID: 5638813526921882084, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 22.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7164817884643597691, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7164817884643597691, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: m_Center.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1704271162}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 893025735077483930, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5889267148064705013}
-  m_SourcePrefab: {fileID: 100100000, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
---- !u!95 &5889267148064705005 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3401779441907676056, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
-  m_PrefabInstance: {fileID: 422662975812090990}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5889267148064705013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304692204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42e77155b32ee34ea0ecb74e6754249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2119,5 +2074,5 @@ SceneRoots:
   - {fileID: 2136938229}
   - {fileID: 753147698}
   - {fileID: 851552289}
-  - {fileID: 422662975812090990}
+  - {fileID: 1061370870}
   - {fileID: 1716072029}
