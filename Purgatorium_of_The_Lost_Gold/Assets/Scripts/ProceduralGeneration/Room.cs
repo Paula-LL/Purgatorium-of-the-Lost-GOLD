@@ -41,11 +41,24 @@ public class Room : MonoBehaviour
             }
         }
         cam.Priority = defaultCameraOnlinePriority;
-        DungeonGenerator.s.SpawmEnemiesInEnterRoom(this);   
+        DungeonGenerator.s.onFinishFadeIn.AddListener(SpawnEnemiesInThisRoom);
+    }
+
+    void SpawnEnemiesInThisRoom()
+    {
+        DungeonGenerator.s.SpawmEnemiesInEnterRoom(this);
+        DungeonGenerator.s.onFinishFadeIn.RemoveListener(SpawnEnemiesInThisRoom);
+
+
     }
     public GameObject returnSpawnEnemiesPoint()
     {
         return spawnEnemyPoints;
+    }
+
+    public GameObject GetActualRoom()
+    {
+        return thisRoom;
     }
     
 }

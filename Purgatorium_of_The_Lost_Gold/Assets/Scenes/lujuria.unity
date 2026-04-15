@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716072025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -1873,7 +1873,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1786392994
 MonoBehaviour:
@@ -1889,7 +1889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1977,12 +1977,15 @@ MonoBehaviour:
   - {fileID: 546467887146023849, guid: 1fedd6f87539dba468358e5cc7c37109, type: 3}
   - {fileID: 854366633017890331, guid: 429a662270b476a42919da1c91be73ff, type: 3}
   - {fileID: 8487574303703724834, guid: 105c22f2d578c354aa1191b54e9dda48, type: 3}
-  numberOfRooms: 5
+  numberOfRooms: 25
   enemyPrefabs:
   - {fileID: 1064309303112416945, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
   - {fileID: 1064309303112416945, guid: 15bab123cf9c53f4d95ccbcd70ab3205, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}
   teletransportadorSeguro: 1
+  onFinishFadeIn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2136938231
 MonoBehaviour:
   m_ObjectHideFlags: 0

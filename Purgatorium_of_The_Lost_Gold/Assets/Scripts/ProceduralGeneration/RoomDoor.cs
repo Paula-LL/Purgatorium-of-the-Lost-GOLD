@@ -17,9 +17,15 @@ public class RoomDoor : MonoBehaviour
         room = GetComponentInParent<Room>();
 #endif
     }
+    private void Update()
+    {
+       
+            DungeonGenerator.s.enemigosNulosEnSala = DungeonGenerator.s.CheckEnemiesInRoom(room);
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && DungeonGenerator.s.teletransportadorSeguro == true)
+        if (other.tag == "Player" && DungeonGenerator.s.teletransportadorSeguro == true && DungeonGenerator.s.enemigosNulosEnSala == true)
         {
             Debug.Log("Contacto");
             Collider [] hits = Physics.OverlapSphere(transform.position, 15);
@@ -41,7 +47,7 @@ public class RoomDoor : MonoBehaviour
     }
     IEnumerator teletranspDelay()
     {
-        
+        //Si el jugador pausa a mitad de FadeIn/FadeOut, este WaitForSecondsRealtime probablemente dará problemas (ojo)
         yield return new WaitForSecondsRealtime(3f);
         DungeonGenerator.s.teletransportadorSeguro = true; 
     }

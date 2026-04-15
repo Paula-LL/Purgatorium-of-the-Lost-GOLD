@@ -6,6 +6,7 @@ using System;
 using static UnityEngine.EventSystems.EventTrigger;
 using Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public enum RoomTypes
 {
@@ -20,6 +21,7 @@ public class DungeonGenerator : MonoBehaviour
 {
     public static DungeonGenerator s;
     public Image canvasFader;
+    public bool enemigosNulosEnSala = true;
 
     #region Attributes
     private int maxRooms;
@@ -40,6 +42,7 @@ public class DungeonGenerator : MonoBehaviour
     //private List<Enemy> _enemyInstances;
     #endregion
 
+    [HideInInspector] public UnityEvent onFinishFadeIn = new UnityEvent();
     public enum ROOM_DIRECTIONS { UP, RIGHT, DOWN, LEFT }
     public class DungeonRoom
     {
@@ -415,23 +418,23 @@ public class DungeonGenerator : MonoBehaviour
 
     private void SpawnSpecialRooms()
     {
-       
+
 
         for (int i = 0; i < _dungeonRooms.Count; ++i)
         {
             DungeonRoom room = _dungeonRooms[i];
-            
+
             if (room.type == RoomTypes.TREASURE)
             {
-                
+
             }
             else if (room.type == RoomTypes.ENEMIES)
             {
-                
+
             }
             else if (room.type == RoomTypes.BOSS)
             {
-                Instantiate(TeletrasportadorBoss, new Vector3( room.xPosition * 63.2f, 22f, room.zPosition * 63.2f), Quaternion.identity);
+                Instantiate(TeletrasportadorBoss, new Vector3(room.xPosition * 63.2f, 22f, room.zPosition * 63.2f), Quaternion.identity);
             }
         }
     }
@@ -467,7 +470,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         return enemyPrefabs[UnityEngine.Random.Range(0, 1)];
     }
-   
+
     /*private GameObject SpawnEnemy(BOSS_ID bossId, Vector3 position)
     {
         // TODO: Spawn Enemies
@@ -566,6 +569,12 @@ public class DungeonGenerator : MonoBehaviour
             canvasFader.GetComponent<CanvasGroup>().alpha = ((canvasFader.GetComponent<CanvasGroup>().alpha) - 0.1f);
             yield return new WaitForSecondsRealtime(0.07f);
         } while (canvasFader.GetComponent<CanvasGroup>().alpha > 0);
+        //DOTween.Sequence()
+        //    .Append(DoFade(canvasFader.GetComponent<CanvasGroup>(), 1, 1.0f))
+        //    .AppendInterval(0.5)
+        //    .Append(DoFade(canvasFader.GetComponent<CanvasGroup>(), 0, 1.0f)).OnComplete(()=>onFinishFadeIn.Invoke());
+        onFinishFadeIn.Invoke();
+
     }
     public void SpawmEnemiesInEnterRoom(Room room)
     {
@@ -581,5 +590,28 @@ public class DungeonGenerator : MonoBehaviour
                 GameObject e = Instantiate(GetRandomEnemyPrefab(), spawn.position, Quaternion.identity, enemiesParentObject.transform);
             }
         }
+        enemigosNulosEnSala = false;
+    }
+    public bool CheckEnemiesInRoom(Room room)
+    {
+        GameObject[] enemies = FindObjectsOfType<GameObject>();
+        List<GameObject> enemiesInTheRoom = new List<GameObject>();
+        foreach (GameObject enemy in enemies)
+        {
+                if (enemy.tag == "Enemy")
+                {
+                    enemiesInTheRoom.Add(enemy.GetComponent<GameObject>());
+                }   
+        }
+        if (enemiesInTheRoom.Count == 0)
+        {
+            enemigosNulosEnSala = true;
+
+        }
+        else 
+        {
+            enemigosNulosEnSala = false;
+        }
+        return enemigosNulosEnSala;
     }
 }
