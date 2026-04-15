@@ -859,7 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42e77155b32ee34ea0ecb74e6754249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownTime: 0.8
 --- !u!1 &373193402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,11 +1026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5992e6e0e72501a4aa40d77ba98ba239, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0019899975
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5992e6e0e72501a4aa40d77ba98ba239, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00044998724
+      value: 0.0009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5992e6e0e72501a4aa40d77ba98ba239, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4112,9 +4111,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.001911765
-  m_Height: 0.02945369
+  m_Height: 0.03310317
   m_Direction: 2
-  m_Center: {x: -0.00012363482, y: -0.001272769, z: -0.004346211}
+  m_Center: {x: -0.00012363943, y: -0.0012727635, z: -0.002521429}
 --- !u!114 &2067865308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,6 +4341,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1ebf2bc440427b64bb9abfed88f84dd4, type: 2}
+    - target: {fileID: 4660466148651104238, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.x
       value: -91.524025
