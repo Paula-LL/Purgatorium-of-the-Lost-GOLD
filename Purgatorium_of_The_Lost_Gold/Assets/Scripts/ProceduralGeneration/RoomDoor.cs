@@ -9,7 +9,7 @@ using UnityEditor;
 public class RoomDoor : MonoBehaviour
 {
     [SerializeField] Room room;
-    
+    [SerializeField] 
     private void Reset()
     {
 #if UNITY_EDITOR
@@ -19,9 +19,11 @@ public class RoomDoor : MonoBehaviour
     }
     private void Update()
     {
-       
             DungeonGenerator.s.enemigosNulosEnSala = DungeonGenerator.s.CheckEnemiesInRoom(room);
-        
+            if (DungeonGenerator.s.enemigosNulosEnSala == true )
+        {
+            GetComponent<Collider>().isTrigger = true;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -44,6 +46,11 @@ public class RoomDoor : MonoBehaviour
             }
            
         }
+        else if (DungeonGenerator.s.enemigosNulosEnSala == false)
+        {
+            GetComponent<Collider>().isTrigger = false;
+        }
+        
     }
     IEnumerator teletranspDelay()
     {

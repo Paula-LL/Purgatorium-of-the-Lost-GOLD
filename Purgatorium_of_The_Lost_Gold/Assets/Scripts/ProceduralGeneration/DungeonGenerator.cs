@@ -585,7 +585,7 @@ public class DungeonGenerator : MonoBehaviour
 
         foreach (Transform spawn in enemySpawns)
         {
-            if (UnityEngine.Random.Range(0f, 1f) <= 0.75f)
+            if (UnityEngine.Random.Range(0f, 1f) <= 0.15f)
             {
                 GameObject e = Instantiate(GetRandomEnemyPrefab(), spawn.position, Quaternion.identity, enemiesParentObject.transform);
             }

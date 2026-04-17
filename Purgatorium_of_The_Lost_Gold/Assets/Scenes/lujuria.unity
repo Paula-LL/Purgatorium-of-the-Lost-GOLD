@@ -1541,6 +1541,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6504924423421569982, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7086620181322078624, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
       propertyPath: healthBar
       value: 
@@ -2041,8 +2045,7 @@ MonoBehaviour:
   - {fileID: 8487574303703724834, guid: 105c22f2d578c354aa1191b54e9dda48, type: 3}
   numberOfRooms: 25
   enemyPrefabs:
-  - {fileID: 1064309303112416945, guid: 6fe0a574ddab53c48bc90dc28e77284a, type: 3}
-  - {fileID: 1064309303112416945, guid: 15bab123cf9c53f4d95ccbcd70ab3205, type: 3}
+  - {fileID: 1182933668868045027, guid: 592d744548a4c434d9cc735679b667f0, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}
   teletransportadorSeguro: 1
   onFinishFadeIn:
