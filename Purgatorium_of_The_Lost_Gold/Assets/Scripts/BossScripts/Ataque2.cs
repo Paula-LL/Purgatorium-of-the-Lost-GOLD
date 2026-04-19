@@ -3,59 +3,53 @@ using UnityEngine;
 
 public class Ataque2 : MonoBehaviour
 {
-    [Header("DetecciÃ³n del Jugador")]
-    [Tooltip("Tag del objeto jugador.")]
+    [Header("Detección del Jugador")]
     [SerializeField] private string etiquetaJugador = "Player";
-    [Tooltip("Distancia mÃ¡xima para que el ataque se active.")]
     [SerializeField] private float rangoDeteccion = 20f;
 
     [Header("Collider de Ataque")]
-    [Tooltip("BoxCollider con Is Trigger activado que define la zona de daÃ±o.")]
     [SerializeField] private BoxCollider colliderAtaque;
 
-    [Header("Pivote y Posicionamiento")]
-    [Tooltip("Transform central alrededor del cual gira la zona de ataque.")]
+    [Header("Rotación")]
     [SerializeField] private Transform puntoGiro;
-    [Tooltip("Distancia fija desde el pivote hasta la zona de ataque.")]
-    [SerializeField] private float radioGiro = 2f;
-    [Tooltip("Velocidad mÃ¡xima de giro para apuntar al jugador (grados/segundo).")]
-    [SerializeField] private float velocidadGiro = 180f;
+    [SerializeField] private float velocidadSeguimiento = 60f;
+    [SerializeField] private Vector3 ejeGiro = Vector3.up;
 
     [Header("Tiempos (segundos)")]
-    [Tooltip("Segundos en AMARILLO (aviso, el objeto sigue girando).")]
     [SerializeField] private float duracionAviso      = 1.5f;
-    [Tooltip("Segundos en ROJO y activo (objeto congelado).")]
     [SerializeField] private float duracionAtaque     = 2f;
-    [Tooltip("Espera entre ataques.")]
     [SerializeField] private float tiempoEntreAtaques = 5f;
 
-    [Header("DaÃ±o")]
+    [Header("Daño")]
     [SerializeField] private float danio = 1;
 
     private static readonly Color ColorAviso  = new Color(1f, 1f, 0f, 0.35f);
     private static readonly Color ColorAtaque = new Color(1f, 0f, 0f, 0.45f);
 
-    private Transform    jugador;
-    private bool         cicloEnCurso     = false;
-    private bool         faseAtaqueActiva = false;
-    private bool         siguiendoJugador = false;
-    private float        anguloActual     = 0f;
-    private MeshRenderer visualizador;
-    public  Material     materialZona;
-    public GameObject boss;
-    public Color colour;
+    private Transform      jugador;
+    private bool           cicloEnCurso      = false;
+    private bool           faseAtaqueActiva  = false;
+    private bool           siguiendoJugador  = false;
+    private bool           _yaGolpeado       = false;
+    private MeshRenderer   visualizador;
+    private PatrolMovement _patrulla;
+    private Vector3        _posInicialCollider;
+    private Quaternion     _rotInicialCollider;
+    public  Material       materialZona;
+    public  GameObject     boss;
+    public  Color          colour;
 
     void Start()
     {
         GameObject obj = GameObject.FindGameObjectWithTag(etiquetaJugador);
         if (obj != null) jugador = obj.transform;
 
-        if (puntoGiro != null)
+        if (boss != null) _patrulla = boss.GetComponent<PatrolMovement>();
+
+        if (colliderAtaque != null)
         {
-            Vector3 desplazamiento = transform.position - puntoGiro.position;
-            desplazamiento.y = 0f;
-            if (desplazamiento.sqrMagnitude > 0.001f)
-                anguloActual = Mathf.Atan2(desplazamiento.x, desplazamiento.z) * Mathf.Rad2Deg;
+            _posInicialCollider = colliderAtaque.transform.localPosition;
+            _rotInicialCollider = colliderAtaque.transform.localRotation;
         }
 
         CrearVisualizador();
@@ -72,83 +66,92 @@ public class Ataque2 : MonoBehaviour
             if (obj != null) jugador = obj.transform;
             return;
         }
-        if (boss.GetComponent<BossHealth>().EstaMuerto == true)
-        {
-            return;
-        }
 
-        Vector3 origen    = puntoGiro != null ? puntoGiro.position : transform.position;
-        float   distancia = Vector3.Distance(origen, jugador.position);
+        if (boss.GetComponent<BossHealth>().EstaMuerto == true) return;
 
-        if (distancia <= rangoDeteccion && !cicloEnCurso)
+        if (siguiendoJugador && colliderAtaque != null && puntoGiro != null && jugador != null)
+            SeguirJugadorConOrbita();
+
+        float distancia      = Vector3.Distance(transform.position, jugador.position);
+        bool  bossMoviendose = _patrulla != null && _patrulla.EstaEnMovimiento;
+
+        if (distancia <= rangoDeteccion && !cicloEnCurso
+            && !bossMoviendose && !PatrolMovement.HayAtaqueActivo
+            && PatrolMovement.TurnoAtaque == 2)
             StartCoroutine(CicloAtaque());
-
-        if (siguiendoJugador && puntoGiro != null && jugador != null)
-            SeguirJugador();
     }
 
-    private void SeguirJugador()
+    private void SeguirJugadorConOrbita()
     {
-        Vector3 haciaJugador = jugador.position - puntoGiro.position;
-        haciaJugador.y = 0f;
-        if (haciaJugador.sqrMagnitude < 0.001f) return;
+        // Dirección desde el pivote hacia el jugador (en el plano del eje de giro)
+        Vector3 haciaJugador  = jugador.position - puntoGiro.position;
+        Vector3 haciaCollider = colliderAtaque.transform.position - puntoGiro.position;
 
-        float anguloObjetivo = Mathf.Atan2(haciaJugador.x, haciaJugador.z) * Mathf.Rad2Deg;
-        anguloActual = Mathf.MoveTowardsAngle(anguloActual, anguloObjetivo, velocidadGiro * Time.deltaTime);
-        AplicarPosicionOrbita();
-    }
+        // Proyectar sobre el plano perpendicular al eje de giro
+        haciaJugador  -= Vector3.Dot(haciaJugador,  ejeGiro) * ejeGiro;
+        haciaCollider -= Vector3.Dot(haciaCollider, ejeGiro) * ejeGiro;
 
-    private void AplicarPosicionOrbita()
-    {
-        float   rad  = anguloActual * Mathf.Deg2Rad;
-        Vector3 dir  = new Vector3(Mathf.Sin(rad), 0f, Mathf.Cos(rad));
-        transform.position = puntoGiro.position + dir * radioGiro;
+        if (haciaJugador.sqrMagnitude < 0.001f || haciaCollider.sqrMagnitude < 0.001f) return;
 
-        Vector3 mirarHacia = puntoGiro.position - transform.position;
-        if (mirarHacia != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(mirarHacia.normalized);
+        float anguloObjetivo = Vector3.SignedAngle(haciaCollider, haciaJugador, ejeGiro);
+        float giro           = Mathf.MoveTowards(0f, anguloObjetivo, velocidadSeguimiento * Time.deltaTime);
+
+        colliderAtaque.transform.RotateAround(puntoGiro.position, ejeGiro, giro);
     }
 
     private IEnumerator CicloAtaque()
     {
-        cicloEnCurso     = true;
-        faseAtaqueActiva = false;
-        siguiendoJugador = true;
+        cicloEnCurso               = true;
+        faseAtaqueActiva           = false;
+        _yaGolpeado                = false;
+        PatrolMovement.HayAtaqueActivo = true;
+
+        // Restaurar posición de inicio antes de cada ciclo
+        if (colliderAtaque != null)
+        {
+            colliderAtaque.transform.localPosition = _posInicialCollider;
+            colliderAtaque.transform.localRotation = _rotInicialCollider;
+        }
 
         if (colliderAtaque != null) colliderAtaque.enabled = false;
-
         SetColor(ColorAviso);
         SetZonaVisible(true);
+        siguiendoJugador = true;      // sigue al player durante el aviso
 
         yield return new WaitForSeconds(duracionAviso);
 
-        siguiendoJugador = false;
-
+        siguiendoJugador = false;     // se congela al atacar
         SetColor(ColorAtaque);
         if (colliderAtaque != null) colliderAtaque.enabled = true;
         faseAtaqueActiva = true;
 
         yield return new WaitForSeconds(duracionAtaque);
 
-        if (colliderAtaque != null) colliderAtaque.enabled = false;
         faseAtaqueActiva = false;
+        if (colliderAtaque != null) colliderAtaque.enabled = false;
         SetZonaVisible(false);
 
-        siguiendoJugador = true;
+        // Liberar el bloqueo ANTES de la espera → el boss puede mirar al player
+        PatrolMovement.HayAtaqueActivo = false;
+
         yield return new WaitForSeconds(tiempoEntreAtaques);
 
-        siguiendoJugador = false;
-        cicloEnCurso     = false;
+        PatrolMovement.TurnoAtaque = 1;
+        cicloEnCurso = false;
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (!faseAtaqueActiva) return;
+        if (!faseAtaqueActiva || _yaGolpeado) return;
 
         if (other.CompareTag(etiquetaJugador))
         {
             Player_controller pc = other.GetComponent<Player_controller>();
-            if (pc != null) pc.TakeDamage(danio);
+            if (pc != null)
+            {
+                pc.TakeDamage(danio);
+                _yaGolpeado = true;
+            }
         }
     }
 
@@ -169,12 +172,44 @@ public class Ataque2 : MonoBehaviour
         visualizador.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         visualizador.receiveShadows    = false;
 
-        Shader shaderTransp = Shader.Find("Legacy Shaders/Transparent/Diffuse");
-        if (shaderTransp == null) shaderTransp = Shader.Find("Transparent/Diffuse");
-        if (shaderTransp == null) shaderTransp = Shader.Find("Standard");
+        // Instanciar para no modificar el asset original del proyecto
+        Material matInstancia = new Material(Shader.Find("Universal Render Pipeline/Unlit") ??
+                                             Shader.Find("Unlit/Color") ??
+                                             Shader.Find("Standard"));
+        ConfigurarMaterialTransparente(matInstancia);
+        matInstancia.color    = colour;
+        materialZona          = matInstancia;
+        visualizador.material = matInstancia;
+    }
 
-        materialZona.color = colour;
-        visualizador.material = materialZona;
+    private static void ConfigurarMaterialTransparente(Material mat)
+    {
+        // URP Unlit transparente
+        Shader urpUnlit = Shader.Find("Universal Render Pipeline/Unlit");
+        if (urpUnlit != null)
+        {
+            mat.shader = urpUnlit;
+            mat.SetFloat("_Surface", 1);
+            mat.SetFloat("_Blend",   0);
+            mat.SetInt("_SrcBlend",  (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            mat.SetInt("_DstBlend",  (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            mat.SetInt("_ZWrite", 0);
+            mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            mat.renderQueue = 3000;
+            return;
+        }
+
+        // Fallback Built-in Standard transparent
+        Shader std = Shader.Find("Standard");
+        if (std != null) mat.shader = std;
+        mat.SetFloat("_Mode", 3);
+        mat.SetInt("_SrcBlend",  (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        mat.SetInt("_DstBlend",  (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        mat.SetInt("_ZWrite", 0);
+        mat.DisableKeyword("_ALPHATEST_ON");
+        mat.EnableKeyword("_ALPHABLEND_ON");
+        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        mat.renderQueue = 3000;
     }
 
     private void SetColor(Color color)
@@ -189,24 +224,7 @@ public class Ataque2 : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Vector3 origen = puntoGiro != null ? puntoGiro.position : transform.position;
-
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(origen, rangoDeteccion);
-
-        if (puntoGiro != null)
-        {
-            Gizmos.color = Color.yellow;
-            int   segmentos = 32;
-            float paso      = 360f / segmentos;
-            for (int i = 0; i < segmentos; i++)
-            {
-                float a0 = i       * paso * Mathf.Deg2Rad;
-                float a1 = (i + 1) * paso * Mathf.Deg2Rad;
-                Vector3 p0 = origen + new Vector3(Mathf.Sin(a0), 0f, Mathf.Cos(a0)) * radioGiro;
-                Vector3 p1 = origen + new Vector3(Mathf.Sin(a1), 0f, Mathf.Cos(a1)) * radioGiro;
-                Gizmos.DrawLine(p0, p1);
-            }
-        }
+        Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
     }
 }
