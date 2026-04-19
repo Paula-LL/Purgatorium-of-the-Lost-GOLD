@@ -23,8 +23,9 @@ public class ControllerAjustes : MonoBehaviour
     public AudioMixer audioMixer;
 
     [Header("AUDIO MIXER PARAMETERS")]
-    [SerializeField] string parametroMusica = "MusicaFondo";
-    [SerializeField] string parametroEfectos = "MusicaGeneral";
+    [SerializeField] string parametroMusica   = "MusicaFondo";
+    [SerializeField] string parametroEfectos  = "MusicaGeneral";
+    [SerializeField] float  limiteMaximoDb    = -20f;  // 0 = sin limite, negativo = mas bajo
 
     [Header("AUDIO SETTINGS")]
     public Slider volumenSliderMusica;
@@ -139,8 +140,8 @@ public class ControllerAjustes : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            audioMixer.SetFloat(parametroMusica, Mathf.Log10(valor <= 0 ? 0.0001f : valor) * 20);
-            // Guardar preferencia
+            float db = Mathf.Log10(valor <= 0 ? 0.0001f : valor) * 20f + limiteMaximoDb;
+            audioMixer.SetFloat(parametroMusica, db);
             PlayerPrefs.SetFloat("VolumenMusica", valor);
             PlayerPrefs.Save();
         }
@@ -150,8 +151,8 @@ public class ControllerAjustes : MonoBehaviour
     {
         if (audioMixer != null)
         {
-            audioMixer.SetFloat(parametroEfectos, Mathf.Log10(valor <= 0 ? 0.0001f : valor) * 20);
-            // Guardar preferencia
+            float db = Mathf.Log10(valor <= 0 ? 0.0001f : valor) * 20f + limiteMaximoDb;
+            audioMixer.SetFloat(parametroEfectos, db);
             PlayerPrefs.SetFloat("VolumenEfectos", valor);
             PlayerPrefs.Save();
         }

@@ -165,13 +165,14 @@ public class Ataque1 : MonoBehaviour
         yield return BarrerAngulo();
 
         if (colliderAtaque != null) colliderAtaque.enabled = false;
-        faseAtaqueActiva           = false;
+        faseAtaqueActiva = false;
         SetZonaVisible(false);
+
+        PatrolMovement.HayAtaqueActivo = false;
 
         yield return new WaitForSeconds(tiempoEntreAtaques);
 
-        PatrolMovement.HayAtaqueActivo = false;
-        PatrolMovement.TurnoAtaque     = 2;   // le toca a Ataque2
+        PatrolMovement.TurnoAtaque = 2;
         cicloEnCurso = false;
     }
 
