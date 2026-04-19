@@ -63,7 +63,7 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleAttack();
+        //HandleAttack();
     }
     Vector3 GetMoveDirection(float x, float z)
     {
@@ -114,7 +114,7 @@ public class Player_controller : MonoBehaviour
         
     }
 
-    void HandleAttack()
+    /*void HandleAttack()
     {
         bool attackKeyboard = Input.GetKeyDown(KeyCode.F);
         bool attackGamepad = Input.GetKeyDown(KeyCode.JoystickButton0);
@@ -123,12 +123,12 @@ public class Player_controller : MonoBehaviour
         {
             PerformAttack();
         }
-    }
+    }*/
 
-    void PerformAttack()
+    /*void PerformAttack()
     {
         Debug.Log("Ataque realizado");
-    }
+    }*/
 
     void StartDash()
     {
