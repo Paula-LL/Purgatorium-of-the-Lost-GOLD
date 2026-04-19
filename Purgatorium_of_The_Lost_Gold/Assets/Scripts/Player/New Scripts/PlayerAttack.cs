@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
 
     private Player_controller player;
 
+    public float currentAttackDamage;
+
     void Start()
     {
         player = Player_controller.instance;
@@ -22,45 +24,9 @@ public class PlayerAttack : MonoBehaviour
         if (UnityEngine.Random.value <= player.currentPlayerStats.critChance)
             finalDamage *= player.currentPlayerStats.critMultiplier;
 
-        attack.attackDamage = finalDamage;
+        currentAttackDamage = finalDamage;
 
-        AttackEnemies(attack);
-    }
-
-    void AttackEnemies(Attack attack)
-    {
-        Vector3 center = transform.position + transform.forward * attack.attackDistance;
-        Collider[] hitColliders = Physics.OverlapSphere(center, attack.attackRadius);
-
-        foreach (Collider col in hitColliders)
-        {
-            if (col.CompareTag("Enemy"))
-            {
-                EnemigoDist dist = col.GetComponent<EnemigoDist>();
-                EnemigoBase baseEnemy = col.GetComponent<EnemigoBase>();
-
-                if (dist != null)
-                {
-                    dist.TakeDamage(attack.attackDamage);
-                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
-                }
-                else if (baseEnemy != null)
-                {
-                    baseEnemy.TakeDamage(attack.attackDamage);
-                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
-                }
-            }
-
-            if (col.CompareTag("Boss"))
-            {
-                BossHealth boss = col.GetComponent<BossHealth>();
-                if (boss != null)
-                {
-                    boss.RecibirDanio(attack.attackDamage);
-                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
-                }
-            }
-        }
+        Debug.Log("Attack prepared. Damage = " + currentAttackDamage);
     }
 
     internal void AddModifier(AttackModifier cardsBuff)
