@@ -4659,6 +4659,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1141006827029011497, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1625734756434545098, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
       propertyPath: m_Name
       value: Dante
@@ -4702,6 +4706,14 @@ PrefabInstance:
     - target: {fileID: 4684100975025438466, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504924423421569982, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504924423421569982, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: currentAttackDamage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086620181322078624, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
       propertyPath: healthBar
