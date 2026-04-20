@@ -1497,6 +1497,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1141006827029011497, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1625734756434545098, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
       propertyPath: m_Name
       value: Dante Variant
@@ -1549,6 +1553,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1704271162}
+    - target: {fileID: 7212137150199359923, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: m_TagString
+      value: Arma
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2043,7 +2051,7 @@ MonoBehaviour:
   - {fileID: 546467887146023849, guid: 1fedd6f87539dba468358e5cc7c37109, type: 3}
   - {fileID: 854366633017890331, guid: 429a662270b476a42919da1c91be73ff, type: 3}
   - {fileID: 8487574303703724834, guid: 105c22f2d578c354aa1191b54e9dda48, type: 3}
-  numberOfRooms: 25
+  numberOfRooms: 12
   enemyPrefabs:
   - {fileID: 1182933668868045027, guid: 592d744548a4c434d9cc735679b667f0, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}

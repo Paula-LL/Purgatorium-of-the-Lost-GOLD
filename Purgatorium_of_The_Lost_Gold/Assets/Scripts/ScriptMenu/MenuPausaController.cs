@@ -38,7 +38,7 @@ public class MenuPausaController : MonoBehaviour
     private static MenuPausaController instance;
     private bool ajustesCargados = false;
 
-    public Animator animator;
+
 
     void Awake()
     {
@@ -197,19 +197,19 @@ public class MenuPausaController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            animator.SetBool("isInPause", true);
+           
             bool activar = !opcionesCanvas.gameObject.activeSelf;
             opcionesCanvas.gameObject.SetActive(true);
             hpBar.gameObject.SetActive(false);
 
             if (activar)
             {
-                Invoke("PausarFisicas", 2);
+                PausarFisicas();
             }
             else
             {
                 ReanudarFisicas();
-                animator.SetBool("isInPause", false);
+                
                 opcionesCanvas.gameObject.SetActive(false);
                 hpBar.gameObject.SetActive(true);
             }
