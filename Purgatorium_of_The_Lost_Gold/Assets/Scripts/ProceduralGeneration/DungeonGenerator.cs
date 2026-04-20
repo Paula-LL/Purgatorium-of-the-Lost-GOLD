@@ -22,7 +22,7 @@ public class DungeonGenerator : MonoBehaviour
     public static DungeonGenerator s;
     public Image canvasFader;
     public bool enemigosNulosEnSala = true;
-
+    List<GameObject> instantiatedEnemies = new List<GameObject>();
     #region Attributes
     private int maxRooms;
     private int nCurrentRooms;
@@ -588,27 +588,22 @@ public class DungeonGenerator : MonoBehaviour
             if (UnityEngine.Random.Range(0f, 1f) <= 0.15f)
             {
                 GameObject e = Instantiate(GetRandomEnemyPrefab(), spawn.position, Quaternion.identity, enemiesParentObject.transform);
+                instantiatedEnemies.Add(e);
+                //Coger componente Enemigo del instanciado, establecer referencia a Room y añadir que OnDie --> Se llame a un método que los elimine de lalista y compruebe si quedan enemigos
             }
         }
+
         enemigosNulosEnSala = false;
     }
     public bool CheckEnemiesInRoom(Room room)
     {
-        GameObject[] enemies = FindObjectsOfType<GameObject>();
-        List<GameObject> enemiesInTheRoom = new List<GameObject>();
-        foreach (GameObject enemy in enemies)
-        {
-                if (enemy.tag == "Enemy")
-                {
-                    enemiesInTheRoom.Add(enemy.GetComponent<GameObject>());
-                }   
-        }
-        if (enemiesInTheRoom.Count == 0)
+        instantiatedEnemies.RemoveAll((GameObject o) => o == null);
+
+        if (instantiatedEnemies.Count == 0)
         {
             enemigosNulosEnSala = true;
-
         }
-        else 
+        else
         {
             enemigosNulosEnSala = false;
         }

@@ -49,7 +49,7 @@ public class PlayerStats
     [Serializable]
     public class Movement
     {
-        public float moveSpeed = 5f;
+        public float moveSpeed = 12f;
         public float dashSpeed = 20f;
         public float dashDuration = 0.5f;
         public float rotationSpeed = 10f;
