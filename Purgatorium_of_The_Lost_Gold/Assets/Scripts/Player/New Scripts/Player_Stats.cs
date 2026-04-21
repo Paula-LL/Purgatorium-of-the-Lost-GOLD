@@ -25,7 +25,7 @@ public class PlayerStats
 
     public PlayerStats()
     {
-        maxHealth = 5;
+        maxHealth = 100;
         baseHealth = maxHealth;
         currentHealth = maxHealth;
 
@@ -39,10 +39,6 @@ public class PlayerStats
 
         attackSpeed = 1f;
 
-        attackRadius = 0.4f;
-        attackDistance = 1.2f;
-        attackDuration = 0.2f;
-
         movement = new Movement();
     }
 
@@ -51,8 +47,9 @@ public class PlayerStats
     {
         public float moveSpeed = 5f;
         public float dashSpeed = 20f;
-        public float dashDuration = 0.1f;
+        public float dashDuration = 0.2f;//Dash duration temp. changed
         public float rotationSpeed = 10f;
+        public float dashCooldown = 0.5f; 
 
         public Movement() { }
 
@@ -62,6 +59,7 @@ public class PlayerStats
             dashSpeed = movement.dashSpeed;
             dashDuration = movement.dashDuration;
             rotationSpeed = movement.rotationSpeed;
+            dashCooldown = movement.dashCooldown;
         }
     }
 }

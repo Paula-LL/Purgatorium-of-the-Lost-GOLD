@@ -93,7 +93,7 @@ public class Player_controller : MonoBehaviour
 
         if (!isDashing && moveDirection.magnitude > 0.1f)
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton3))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 StartDash();
             }
@@ -101,6 +101,7 @@ public class Player_controller : MonoBehaviour
         else if (isDashing)
         {
             dashTimeLeft -= Time.deltaTime;
+
             if (dashTimeLeft <= 0)
             {
                 isDashing = false;
@@ -109,24 +110,15 @@ public class Player_controller : MonoBehaviour
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
         controller.Move(moveDirection * speed * Time.deltaTime);
-
+        //DashCooldown(); 
         
-    }
+    }//Where is duration coming from??
 
-    /*void HandleAttack()
+    /*void DashCooldown()
     {
-        bool attackKeyboard = Input.GetKeyDown(KeyCode.F);
-        bool attackGamepad = Input.GetKeyDown(KeyCode.JoystickButton0);
-
-        if (attackKeyboard || attackGamepad)
-        {
-            PerformAttack();
+        if (currentPlayerStats.movement.dashCooldown >= 0) {
+            isDashing = false; 
         }
-    }*/
-
-    /*void PerformAttack()
-    {
-        Debug.Log("Ataque realizado");
     }*/
 
     void StartDash()
