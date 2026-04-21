@@ -93,7 +93,7 @@ public class Player_controller : MonoBehaviour
 
         if (!isDashing && moveDirection.magnitude > 0.1f)
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton3))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 StartDash();
             }
