@@ -7,7 +7,7 @@ public class AttackSequenceControler : MonoBehaviour
     private Animator anim;
     private PlayerAttack playerAttack;
 
-    private float nextFireTime = 2.5f;
+    [SerializeField] private float nextFireTime = .4f;
     private float timeSinceLastAttack = 0;
     private float lastAttackTime = 1f;
 
@@ -87,6 +87,11 @@ public class AttackSequenceControler : MonoBehaviour
             timeSinceLastAttack = 0;
             currentState = AttackStates.AT3;
         }
+    }
+
+    public void ResetTimeSinceLastAttack()
+    {
+        timeSinceLastAttack = 0;
     }
 
     void At3Update()

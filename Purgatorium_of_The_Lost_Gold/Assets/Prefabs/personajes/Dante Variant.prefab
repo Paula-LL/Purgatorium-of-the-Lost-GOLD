@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: currentAttackDamage
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5986980660534967122, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: attackSequenceControler
+      value: 
+      objectReference: {fileID: 6693398671108183750}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.x
       value: -91.524025
@@ -112,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42e77155b32ee34ea0ecb74e6754249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextFireTime: 0.4
 --- !u!4 &9004886156284005358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7357939744790992830, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}

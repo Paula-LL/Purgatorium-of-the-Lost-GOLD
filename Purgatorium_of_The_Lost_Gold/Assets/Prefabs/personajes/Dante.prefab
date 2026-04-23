@@ -1771,6 +1771,7 @@ GameObject:
   - component: {fileID: 8697529000308491760}
   - component: {fileID: 4660466148651104238}
   - component: {fileID: 4417932106004509670}
+  - component: {fileID: 5986980660534967122}
   m_Layer: 0
   m_Name: Dante
   m_TagString: Player
@@ -2070,11 +2071,13 @@ MonoBehaviour:
       dashSpeed: 20
       dashDuration: 0.1
       rotationSpeed: 10
+      dashCooldown: 0.5
   currentMovement:
     moveSpeed: 5
     dashSpeed: 20
     dashDuration: 0.1
     rotationSpeed: 10
+    dashCooldown: 0.5
   animator: {fileID: 3401779441907676056}
   loversBaseModifierList: []
   loversInvertedModifierList: []
@@ -2094,7 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierAttackList: []
-  animator: {fileID: 3401779441907676056}
+  currentAttackDamage: 0
 --- !u!54 &4417932106004509670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2122,6 +2125,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5986980660534967122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893025735077483930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35c191b0f496154a8f494fb559d1dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSequenceControler: {fileID: 0}
 --- !u!1 &930991159983760200
 GameObject:
   m_ObjectHideFlags: 0
