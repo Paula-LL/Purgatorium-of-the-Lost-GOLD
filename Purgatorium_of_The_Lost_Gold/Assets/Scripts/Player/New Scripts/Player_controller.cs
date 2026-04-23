@@ -60,6 +60,8 @@ public class Player_controller : MonoBehaviour
         healthBar.UpdateHealthBar();
     }
 
+    //Enemy HP going past 0 (negative)
+
     void Update()
     {
         HandleMovement();

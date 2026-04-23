@@ -4719,6 +4719,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 6607949913410012438}
+    - target: {fileID: 7086620181322078624, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: currentMovement.dashCooldown
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086620181322078624, guid: 3d575b1bdc72668419da2b629334a0ac, type: 3}
+      propertyPath: currentMovement.dashDuration
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
