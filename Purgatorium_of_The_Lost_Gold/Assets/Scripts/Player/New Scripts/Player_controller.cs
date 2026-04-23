@@ -95,6 +95,7 @@ public class Player_controller : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
+                animator.SetBool("isDashing", true);
                 StartDash();
             }
         }
@@ -103,6 +104,7 @@ public class Player_controller : MonoBehaviour
             dashTimeLeft -= Time.deltaTime;
             if (dashTimeLeft <= 0)
             {
+                animator.SetBool("isDashing", false);
                 isDashing = false;
             }
         }
