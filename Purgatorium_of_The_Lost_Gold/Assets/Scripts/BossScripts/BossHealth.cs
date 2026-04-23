@@ -32,6 +32,5 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log($"[BossHealth] {gameObject.name} ha muerto.");
         EstadisticasJuego.RegistrarBossCaido();
-        Destroy(gameObject);
     }
 }

@@ -18,7 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 1ebf2bc440427b64bb9abfed88f84dd4, type: 2}
     - target: {fileID: 4660466148651104238, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660466148651104238, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentAttackDamage
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,6 +63,26 @@ PrefabInstance:
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentMovement.moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentPlayerStats.attackDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentPlayerStats.attackRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentPlayerStats.attackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: currentPlayerStats.attackDuration
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -157,6 +181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lanza
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5992e6e0e72501a4aa40d77ba98ba239, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -185,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf1bbda086d14d4ca299f29267a1ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!136 &1141006827029011497
 CapsuleCollider:
   m_ObjectHideFlags: 0

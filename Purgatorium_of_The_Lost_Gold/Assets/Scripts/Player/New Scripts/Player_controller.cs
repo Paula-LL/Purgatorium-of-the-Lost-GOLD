@@ -6,7 +6,7 @@ using static PlayerStats;
 /// <summary>
 /// Paula PlayerController
 /// </summary>
-[RequireComponent(typeof(CharacterController))]
+
 public class Player_controller : MonoBehaviour
 {
     public static Player_controller playerController;
@@ -30,10 +30,10 @@ public class Player_controller : MonoBehaviour
     public PlayerStats.Movement currentMovement;
 
     public Animator animator;
-    private CharacterController controller;
+    
     private Vector3 moveDirection;
     private bool isDashing = false;
-    private float dashTimeLeft = 0f;
+    private float dashTimeLeft = 2f;
 
     public List<LoversNormalModifier> loversBaseModifierList = new List<LoversNormalModifier>();
     public List<LoversInvertedModifier> loversInvertedModifierList = new List<LoversInvertedModifier>();
@@ -55,7 +55,7 @@ public class Player_controller : MonoBehaviour
     {
         currentPlayerStats = new PlayerStats();
         currentMovement = currentPlayerStats.movement;
-        controller = GetComponent<CharacterController>();
+        
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
     }
@@ -97,30 +97,41 @@ public class Player_controller : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
+                animator.SetBool("isDashing", true);
                 StartDash();
             }
         }
         else if (isDashing)
         {
             dashTimeLeft -= Time.deltaTime;
-
             if (dashTimeLeft <= 0)
             {
+                animator.SetBool("isDashing", false);
                 isDashing = false;
             }
         }
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
-        controller.Move(moveDirection * speed * Time.deltaTime);
-        //DashCooldown(); 
-        
-    }//Where is duration coming from??
 
-    /*void DashCooldown()
+        this.transform.position = this.transform.position + (moveDirection * speed * Time.deltaTime);
+
+        
+    }
+
+    /*void HandleAttack()
     {
-        if (currentPlayerStats.movement.dashCooldown >= 0) {
-            isDashing = false; 
+        bool attackKeyboard = Input.GetKeyDown(KeyCode.F);
+        bool attackGamepad = Input.GetKeyDown(KeyCode.JoystickButton0);
+
+        if (attackKeyboard || attackGamepad)
+        {
+            PerformAttack();
         }
+    }*/
+
+    /*void PerformAttack()
+    {
+        Debug.Log("Ataque realizado");
     }*/
 
     void StartDash()

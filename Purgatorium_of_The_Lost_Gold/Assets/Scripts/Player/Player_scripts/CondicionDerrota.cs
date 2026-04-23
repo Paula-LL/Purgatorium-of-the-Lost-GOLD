@@ -14,5 +14,9 @@ public class CondicionDerrota : MonoBehaviour
         {
             SceneManager.LoadScene(sceneName);
         }
+        else if(GameObject.FindGameObjectWithTag(playerTag).transform.position.y < 10)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

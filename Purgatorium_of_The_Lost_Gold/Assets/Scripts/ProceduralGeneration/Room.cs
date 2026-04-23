@@ -13,7 +13,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        if (thisRoom.transform.position == new Vector3(0, 2, 0))
+        if (thisRoom.transform.position == new Vector3(0, 20, 0))
         {
             cam.Priority = defaultCameraOnlinePriority;
         }
@@ -31,6 +31,7 @@ public class Room : MonoBehaviour
 
     public void OnEnterRoom()
     {
+
         Cinemachine.CinemachineVirtualCamera currentActiveCam = (Cinemachine.CinemachineVirtualCamera)GetBrain().ActiveVirtualCamera;
         if (currentActiveCam != null && currentActiveCam != cam)
         {
@@ -40,10 +41,24 @@ public class Room : MonoBehaviour
             }
         }
         cam.Priority = defaultCameraOnlinePriority;
+        DungeonGenerator.s.onFinishFadeIn.AddListener(SpawnEnemiesInThisRoom);
+    }
+
+    void SpawnEnemiesInThisRoom()
+    {
+        DungeonGenerator.s.SpawmEnemiesInEnterRoom(this);
+        DungeonGenerator.s.onFinishFadeIn.RemoveListener(SpawnEnemiesInThisRoom);
+
+
     }
     public GameObject returnSpawnEnemiesPoint()
     {
         return spawnEnemyPoints;
     }
 
+    public GameObject GetActualRoom()
+    {
+        return thisRoom;
+    }
+    
 }
