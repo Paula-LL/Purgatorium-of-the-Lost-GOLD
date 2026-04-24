@@ -63,12 +63,9 @@ public class Player_controller : MonoBehaviour
         canDash = true; 
     }
 
-    //Enemy HP going past 0 (negative)
-
     void Update()
     {
         HandleMovement();
-        //HandleAttack();
     }
     Vector3 GetMoveDirection(float x, float z)
     {
@@ -102,7 +99,7 @@ public class Player_controller : MonoBehaviour
             {
                 animator.SetBool("isDashing", true);
                 StartDash();
-                StartCoroutine(Dash());
+                StartCoroutine(DashCooldown());
             }
         }
         else if (isDashing)
@@ -118,11 +115,11 @@ public class Player_controller : MonoBehaviour
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
 
         this.transform.position = this.transform.position + (moveDirection * speed * Time.deltaTime);
-
-        
     }
 
-    private IEnumerator Dash() { 
+
+    //Coroutine for dash Cooldown
+    private IEnumerator DashCooldown() { 
         canDash = false;
         yield return new WaitForSeconds(currentPlayerStats.movement.dashCooldown);
         canDash = true;
