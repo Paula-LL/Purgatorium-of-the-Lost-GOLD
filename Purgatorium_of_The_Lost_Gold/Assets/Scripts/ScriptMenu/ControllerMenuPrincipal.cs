@@ -13,7 +13,6 @@ public class ControllerMenuPrincipal : MonoBehaviour
 
     [Header("Botones Extra para Canvas")]
     [SerializeField] private Button botonAyuda;
-    [SerializeField] private Button botonCreditos;
 
     [Header("Configuracion de Escena")]
     [SerializeField] private string nombreEscena = "Mapa";
@@ -25,10 +24,6 @@ public class ControllerMenuPrincipal : MonoBehaviour
     [Header("Configuracion de Canvas Ayuda")]
     [SerializeField] private Canvas canvasActivarAyuda;
     [SerializeField] private Canvas canvasDesactivarMenu1;
-
-    [Header("Configuracion de Canvas Creditos")]
-    [SerializeField] private Canvas canvasActivarCreditos;
-    [SerializeField] private Canvas canvasDesactivarMenu;
 
     [Header("Sonido de Botones")]
     [SerializeField] private AudioClip sonidoBoton;
@@ -60,11 +55,6 @@ public class ControllerMenuPrincipal : MonoBehaviour
             botonAyuda.onClick.AddListener(ReproducirSonido);
         }
 
-        if (botonCreditos != null)
-        {
-            botonCreditos.onClick.AddListener(AlternarCanvasCreditos);
-            botonCreditos.onClick.AddListener(ReproducirSonido);
-        }
     }
 
     private void ReproducirSonido()
@@ -99,15 +89,6 @@ public class ControllerMenuPrincipal : MonoBehaviour
 
         if (canvasDesactivarMenu1 != null)
             canvasDesactivarMenu1.gameObject.SetActive(false);
-    }
-
-    public void AlternarCanvasCreditos()
-    {
-        if (canvasActivarCreditos != null)
-            canvasActivarCreditos.gameObject.SetActive(true);
-
-        if (canvasDesactivarMenu != null)
-            canvasDesactivarMenu.gameObject.SetActive(false);
     }
 
     public void SalirDelJuego()
