@@ -9,9 +9,9 @@ using UnityEngine;
 public class EnemyStats
 {
     [Header("Vida")]
-    public float baseHealth   = 3f;
-    public float maxHealth    = 3f;
-    public float currentHealth;
+    public int baseHealth = 3;
+    public int maxHealth = 3;
+    public int currentHealth;
 
     [Header("Defensa")]
     public float defense      = 0f;
@@ -27,7 +27,7 @@ public class EnemyStats
 
     public EnemyStats()
     {
-        baseHealth    = 3f;
+        baseHealth    = 3;
         maxHealth     = baseHealth;
         currentHealth = maxHealth;
         defense       = 0f;

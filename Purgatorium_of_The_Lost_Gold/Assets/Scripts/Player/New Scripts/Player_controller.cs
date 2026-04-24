@@ -93,7 +93,7 @@ public class Player_controller : MonoBehaviour
             animator.SetFloat("Speed", 0f);
         }
 
-        if (!isDashing && moveDirection.magnitude > 0.1f)
+        if (!isDashing && moveDirection.magnitude > 0.1f /*&& currentPlayerStats.movement.dashCooldown >= Time.deltaTime*/)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
@@ -117,22 +117,6 @@ public class Player_controller : MonoBehaviour
 
         
     }
-
-    /*void HandleAttack()
-    {
-        bool attackKeyboard = Input.GetKeyDown(KeyCode.F);
-        bool attackGamepad = Input.GetKeyDown(KeyCode.JoystickButton0);
-
-        if (attackKeyboard || attackGamepad)
-        {
-            PerformAttack();
-        }
-    }*/
-
-    /*void PerformAttack()
-    {
-        Debug.Log("Ataque realizado");
-    }*/
 
     void StartDash()
     {

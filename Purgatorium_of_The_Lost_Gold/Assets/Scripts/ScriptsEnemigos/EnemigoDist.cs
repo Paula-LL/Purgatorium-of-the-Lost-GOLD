@@ -60,7 +60,7 @@ public class EnemigoDist : MonoBehaviour
     public void TakeDamage(float damage)
     {
         float finalDamage = stats.CalcularDanoRecibido(damage);
-        stats.currentHealth -= finalDamage;
+        stats.currentHealth -= (int)finalDamage;
         Debug.Log($"{gameObject.name} recibio {finalDamage} dano. Vida: {stats.currentHealth}/{stats.maxHealth}");
         if (stats.currentHealth <= 0)
         {
