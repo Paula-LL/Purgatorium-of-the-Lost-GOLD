@@ -34,6 +34,7 @@ public class Player_controller : MonoBehaviour
     private Vector3 moveDirection;
     private bool isDashing = false;
     private float dashTimeLeft = 2f;
+    private bool canDash; 
 
     public List<LoversNormalModifier> loversBaseModifierList = new List<LoversNormalModifier>();
     public List<LoversInvertedModifier> loversInvertedModifierList = new List<LoversInvertedModifier>();
@@ -58,6 +59,8 @@ public class Player_controller : MonoBehaviour
         
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
+
+        canDash = true; 
     }
 
     //Enemy HP going past 0 (negative)
@@ -93,12 +96,13 @@ public class Player_controller : MonoBehaviour
             animator.SetFloat("Speed", 0f);
         }
 
-        if (!isDashing && moveDirection.magnitude > 0.1f /*&& currentPlayerStats.movement.dashCooldown >= Time.deltaTime*/)
+        if (!isDashing && moveDirection.magnitude > 0.1f && canDash)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 animator.SetBool("isDashing", true);
                 StartDash();
+                StartCoroutine(Dash());
             }
         }
         else if (isDashing)
@@ -116,6 +120,12 @@ public class Player_controller : MonoBehaviour
         this.transform.position = this.transform.position + (moveDirection * speed * Time.deltaTime);
 
         
+    }
+
+    private IEnumerator Dash() { 
+        canDash = false;
+        yield return new WaitForSeconds(currentPlayerStats.movement.dashCooldown);
+        canDash = true;
     }
 
     void StartDash()

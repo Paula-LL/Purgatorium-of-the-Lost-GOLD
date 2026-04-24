@@ -49,7 +49,7 @@ public class PlayerStats
         public float dashSpeed = 20f;
         public float dashDuration = 0.2f;//Dash duration temp. changed
         public float rotationSpeed = 10f;
-        public float dashCooldown = 0.5f; 
+        public float dashCooldown = 1f; 
 
         public Movement() { }
 
