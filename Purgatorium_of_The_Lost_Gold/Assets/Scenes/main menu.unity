@@ -5640,7 +5640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &208991084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5737,6 +5737,61 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &278510115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278510117}
+  - component: {fileID: 278510116}
+  m_Layer: 0
+  m_Name: MenuControler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &278510116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278510115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85fefe08cc96c5947871e693f9f0bb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botonInicio: {fileID: 1865618577}
+  botonAjustes: {fileID: 518647149}
+  botonSalir: {fileID: 915164865}
+  botonAyuda: {fileID: 985622183}
+  nombreEscena: Base
+  canvasActivar: {fileID: 1955193515}
+  canvasDesactivar: {fileID: 0}
+  canvasActivarAyuda: {fileID: 0}
+  canvasDesactivarMenu1: {fileID: 0}
+  sonidoBoton: {fileID: 0}
+  audioSourceBoton: {fileID: 0}
+--- !u!4 &278510117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278510115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 518, y: 291.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322097253
 GameObject:
   m_ObjectHideFlags: 0
@@ -46926,3 +46981,4 @@ SceneRoots:
   - {fileID: 1432075660}
   - {fileID: 1273508845}
   - {fileID: 1955193516}
+  - {fileID: 278510117}
