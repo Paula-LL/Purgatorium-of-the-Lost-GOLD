@@ -11,7 +11,7 @@ public class EnemyStats
     [Header("Vida")]
     public int baseHealth = 3;
     public int maxHealth = 3;
-    public int currentHealth;
+    public float currentHealth;
 
     [Header("Defensa")]
     public float defense      = 0f;

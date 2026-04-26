@@ -9,18 +9,16 @@ public class HealthBarEnemies : MonoBehaviour
     [SerializeField]
     public Image healthBar;
     public GameObject Enemigo;
-    private Camera cameraActual;
+   
     public Canvas canvasVida;
 
 
     [SerializeField]
     public TMP_Text healthBarText;
 
-    private void Start()
+    private void Update()
     {
-        cameraActual = Camera.main;
-        canvasVida.GetComponent<Canvas>().worldCamera = cameraActual;
-
+        healthBar.canvas.transform.position = Enemigo.transform.position;
         UpdateHealthBar();
     }
     public void UpdateHealthBar()
