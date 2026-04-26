@@ -3,41 +3,29 @@ using UnityEngine;
 
 public class Ataque2 : MonoBehaviour
 {
-    [Header("Detección del Jugador")]
+    [Header("Deteccion del Jugador")]
     [SerializeField] private string etiquetaJugador = "Player";
-    [SerializeField] private float rangoDeteccion = 20f;
+    [SerializeField] private float  rangoDeteccion  = 20f;
 
-    [Header("Collider de Ataque")]
-    [SerializeField] private BoxCollider colliderAtaque;
+    [Header("Dash")]
+    [SerializeField] private float distanciaRetroceso = 3f;
+    [SerializeField] private float duracionRetroceso  = 0.5f;
+    [SerializeField] private float duracionAviso      = 1f;
+    [SerializeField] private float velocidadDash      = 14f;
+    [SerializeField] private float tiempoEsquive      = 1.5f;
+    [SerializeField] private float duracionRetorno    = 1f;
+    [SerializeField] private float tiempoEntreAtaques = 3f;
 
-    [Header("Rotación")]
-    [SerializeField] private Transform puntoGiro;
-    [SerializeField] private float velocidadSeguimiento = 60f;
-    [SerializeField] private Vector3 ejeGiro = Vector3.up;
-
-    [Header("Tiempos (segundos)")]
-    [SerializeField] private float duracionAviso      = 1.5f;
-    [SerializeField] private float duracionAtaque     = 2f;
-    [SerializeField] private float tiempoEntreAtaques = 5f;
-
-    [Header("Daño")]
-    [SerializeField] private float danio = 1;
-
-    private static readonly Color ColorAviso  = new Color(1f, 1f, 0f, 0.35f);
-    private static readonly Color ColorAtaque = new Color(1f, 0f, 0f, 0.45f);
+    [Header("Collider de Daño")]
+    [SerializeField] private Collider colliderDash;
+    [SerializeField] private float daño = 1.5f;
 
     private Transform      jugador;
-    private bool           cicloEnCurso      = false;
-    private bool           faseAtaqueActiva  = false;
-    private bool           siguiendoJugador  = false;
-    private bool           _yaGolpeado       = false;
-    private MeshRenderer   visualizador;
+    private bool           cicloEnCurso = false;
+    private bool           dashActivo   = false;
+    private bool           _yaGolpeado  = false;
     private PatrolMovement _patrulla;
-    private Vector3        _posInicialCollider;
-    private Quaternion     _rotInicialCollider;
-    public  Material       materialZona;
     public  GameObject     boss;
-    public  Color          colour;
 
     void Start()
     {
@@ -45,17 +33,7 @@ public class Ataque2 : MonoBehaviour
         if (obj != null) jugador = obj.transform;
 
         if (boss != null) _patrulla = boss.GetComponent<PatrolMovement>();
-
-        if (colliderAtaque != null)
-        {
-            _posInicialCollider = colliderAtaque.transform.localPosition;
-            _rotInicialCollider = colliderAtaque.transform.localRotation;
-        }
-
-        CrearVisualizador();
-
-        if (colliderAtaque != null) colliderAtaque.enabled = false;
-        SetZonaVisible(false);
+        if (colliderDash != null) colliderDash.enabled = false;
     }
 
     void Update()
@@ -67,12 +45,9 @@ public class Ataque2 : MonoBehaviour
             return;
         }
 
-        if (boss.GetComponent<BossHealth>().EstaMuerto == true) return;
+        if (boss != null && boss.GetComponent<BossHealth>().EstaMuerto) return;
 
-        if (siguiendoJugador && colliderAtaque != null && puntoGiro != null && jugador != null)
-            SeguirJugadorConOrbita();
-
-        float distancia      = Vector3.Distance(transform.position, jugador.position);
+        float distancia      = Vector3.Distance(boss.transform.position, jugador.position);
         bool  bossMoviendose = _patrulla != null && _patrulla.EstaEnMovimiento;
 
         if (distancia <= rangoDeteccion && !cicloEnCurso
@@ -81,150 +56,81 @@ public class Ataque2 : MonoBehaviour
             StartCoroutine(CicloAtaque());
     }
 
-    private void SeguirJugadorConOrbita()
-    {
-        // Dirección desde el pivote hacia el jugador (en el plano del eje de giro)
-        Vector3 haciaJugador  = jugador.position - puntoGiro.position;
-        Vector3 haciaCollider = colliderAtaque.transform.position - puntoGiro.position;
-
-        // Proyectar sobre el plano perpendicular al eje de giro
-        haciaJugador  -= Vector3.Dot(haciaJugador,  ejeGiro) * ejeGiro;
-        haciaCollider -= Vector3.Dot(haciaCollider, ejeGiro) * ejeGiro;
-
-        if (haciaJugador.sqrMagnitude < 0.001f || haciaCollider.sqrMagnitude < 0.001f) return;
-
-        float anguloObjetivo = Vector3.SignedAngle(haciaCollider, haciaJugador, ejeGiro);
-        float giro           = Mathf.MoveTowards(0f, anguloObjetivo, velocidadSeguimiento * Time.deltaTime);
-
-        colliderAtaque.transform.RotateAround(puntoGiro.position, ejeGiro, giro);
-    }
-
     private IEnumerator CicloAtaque()
     {
-        cicloEnCurso               = true;
-        faseAtaqueActiva           = false;
-        _yaGolpeado                = false;
+        cicloEnCurso = true;
+        _yaGolpeado  = false;
         PatrolMovement.HayAtaqueActivo = true;
 
-        // Restaurar posición de inicio antes de cada ciclo
-        if (colliderAtaque != null)
-        {
-            colliderAtaque.transform.localPosition = _posInicialCollider;
-            colliderAtaque.transform.localRotation = _rotInicialCollider;
-        }
+        Vector3 posInicial = boss.transform.position;
+        Vector3 posJugador = jugador.position;
+        Vector3 direccion  = posJugador - posInicial;
+        direccion.y = 0f;
+        if (direccion.sqrMagnitude > 0.001f) direccion.Normalize();
 
-        if (colliderAtaque != null) colliderAtaque.enabled = false;
-        SetColor(ColorAviso);
-        SetZonaVisible(true);
-        siguiendoJugador = true;      // sigue al player durante el aviso
+        if (direccion != Vector3.zero)
+            boss.transform.rotation = Quaternion.LookRotation(direccion);
+
+        if (_patrulla != null) _patrulla.enabled = false;
+
+        Vector3 posRetroceso = posInicial - direccion * distanciaRetroceso;
+        float t = 0f;
+        while (t < duracionRetroceso)
+        {
+            t += Time.deltaTime;
+            boss.transform.position = Vector3.Lerp(posInicial, posRetroceso, t / duracionRetroceso);
+            yield return null;
+        }
 
         yield return new WaitForSeconds(duracionAviso);
 
-        siguiendoJugador = false;     // se congela al atacar
-        SetColor(ColorAtaque);
-        if (colliderAtaque != null) colliderAtaque.enabled = true;
-        faseAtaqueActiva = true;
+        if (colliderDash != null) colliderDash.enabled = true;
+        dashActivo = true;
 
-        yield return new WaitForSeconds(duracionAtaque);
+        while (Vector3.Distance(boss.transform.position, posJugador) > 0.25f && dashActivo)
+        {
+            boss.transform.position = Vector3.MoveTowards(
+                boss.transform.position, posJugador, velocidadDash * Time.deltaTime);
+            yield return null;
+        }
 
-        faseAtaqueActiva = false;
-        if (colliderAtaque != null) colliderAtaque.enabled = false;
-        SetZonaVisible(false);
+        dashActivo = false;
+        if (colliderDash != null) colliderDash.enabled = false;
 
-        // Liberar el bloqueo ANTES de la espera → el boss puede mirar al player
+        if (!_yaGolpeado)
+            yield return new WaitForSeconds(tiempoEsquive);
+
+        Vector3 posActual = boss.transform.position;
+        t = 0f;
+        while (t < duracionRetorno)
+        {
+            t += Time.deltaTime;
+            boss.transform.position = Vector3.Lerp(posActual, posInicial, t / duracionRetorno);
+            yield return null;
+        }
+        boss.transform.position = posInicial;
+
+        if (_patrulla != null) _patrulla.enabled = true;
+
         PatrolMovement.HayAtaqueActivo = false;
-
         yield return new WaitForSeconds(tiempoEntreAtaques);
 
-        PatrolMovement.TurnoAtaque = 1;
+        PatrolMovement.TurnoAtaque = 3;
         cicloEnCurso = false;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!faseAtaqueActiva || _yaGolpeado) return;
-
+        if (!dashActivo || _yaGolpeado) return;
         if (other.CompareTag(etiquetaJugador))
         {
             Player_controller pc = other.GetComponent<Player_controller>();
             if (pc != null)
             {
-                pc.TakeDamage(danio);
+                pc.TakeDamage(daño);
                 _yaGolpeado = true;
+                dashActivo  = false;
             }
         }
-    }
-
-    private void CrearVisualizador()
-    {
-        if (colliderAtaque == null) return;
-
-        GameObject vis = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        vis.name = "ZonaAtaque2_Visual";
-        vis.transform.SetParent(colliderAtaque.transform, false);
-        vis.transform.localPosition = colliderAtaque.center;
-        vis.transform.localRotation = Quaternion.identity;
-        vis.transform.localScale    = colliderAtaque.size;
-
-        Destroy(vis.GetComponent<Collider>());
-
-        visualizador = vis.GetComponent<MeshRenderer>();
-        visualizador.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        visualizador.receiveShadows    = false;
-
-        // Instanciar para no modificar el asset original del proyecto
-        Material matInstancia = new Material(Shader.Find("Universal Render Pipeline/Unlit") ??
-                                             Shader.Find("Unlit/Color") ??
-                                             Shader.Find("Standard"));
-        ConfigurarMaterialTransparente(matInstancia);
-        matInstancia.color    = colour;
-        materialZona          = matInstancia;
-        visualizador.material = matInstancia;
-    }
-
-    private static void ConfigurarMaterialTransparente(Material mat)
-    {
-        // URP Unlit transparente
-        Shader urpUnlit = Shader.Find("Universal Render Pipeline/Unlit");
-        if (urpUnlit != null)
-        {
-            mat.shader = urpUnlit;
-            mat.SetFloat("_Surface", 1);
-            mat.SetFloat("_Blend",   0);
-            mat.SetInt("_SrcBlend",  (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            mat.SetInt("_DstBlend",  (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            mat.SetInt("_ZWrite", 0);
-            mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
-            mat.renderQueue = 3000;
-            return;
-        }
-
-        // Fallback Built-in Standard transparent
-        Shader std = Shader.Find("Standard");
-        if (std != null) mat.shader = std;
-        mat.SetFloat("_Mode", 3);
-        mat.SetInt("_SrcBlend",  (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        mat.SetInt("_DstBlend",  (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        mat.SetInt("_ZWrite", 0);
-        mat.DisableKeyword("_ALPHATEST_ON");
-        mat.EnableKeyword("_ALPHABLEND_ON");
-        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        mat.renderQueue = 3000;
-    }
-
-    private void SetColor(Color color)
-    {
-        if (materialZona != null) materialZona.color = color;
-    }
-
-    private void SetZonaVisible(bool visible)
-    {
-        if (visualizador != null) visualizador.enabled = visible;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
     }
 }
