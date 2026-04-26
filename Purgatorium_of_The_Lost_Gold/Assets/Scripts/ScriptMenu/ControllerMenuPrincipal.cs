@@ -17,13 +17,18 @@ public class ControllerMenuPrincipal : MonoBehaviour
     [Header("Configuracion de Escena")]
     [SerializeField] private string nombreEscena = "Mapa";
 
-    [Header("Configuracion de Canvas Principal")]
+    [Header("Configuracion de Canvas Ajustes")]
     [SerializeField] private Canvas canvasActivar;
     [SerializeField] private Canvas canvasDesactivar;
 
     [Header("Configuracion de Canvas Ayuda")]
     [SerializeField] private Canvas canvasActivarAyuda;
     [SerializeField] private Canvas canvasDesactivarMenu1;
+
+    [Header("Configuracion de Canvas Estadisticas")]
+    [SerializeField] private Button botonEstadisticasCanvas;
+    [SerializeField] private Canvas canvasActivarEstadis;
+    [SerializeField] private Canvas canvasDesactivarMenu;
 
     [Header("Sonido de Botones")]
     [SerializeField] private AudioClip sonidoBoton;
@@ -53,6 +58,12 @@ public class ControllerMenuPrincipal : MonoBehaviour
         {
             botonAyuda.onClick.AddListener(AlternarCanvasAyuda);
             botonAyuda.onClick.AddListener(ReproducirSonido);
+        }
+
+        if (botonEstadisticasCanvas != null)
+        {
+            botonEstadisticasCanvas.onClick.AddListener(AlternarCanvasNuevo);
+            botonEstadisticasCanvas.onClick.AddListener(ReproducirSonido);
         }
 
     }
@@ -89,6 +100,15 @@ public class ControllerMenuPrincipal : MonoBehaviour
 
         if (canvasDesactivarMenu1 != null)
             canvasDesactivarMenu1.gameObject.SetActive(false);
+    }
+
+    public void AlternarCanvasNuevo()
+    {
+        if (canvasActivarEstadis != null)
+            canvasActivarEstadis.gameObject.SetActive(true);
+
+        if (canvasDesactivarMenu != null)
+            canvasDesactivarMenu.gameObject.SetActive(false);
     }
 
     public void SalirDelJuego()
