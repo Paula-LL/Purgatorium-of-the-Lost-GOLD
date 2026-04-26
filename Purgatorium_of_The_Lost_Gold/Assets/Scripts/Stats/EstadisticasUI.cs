@@ -38,18 +38,6 @@ public class EstadisticasUI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Abre el panel de estadisticas. 
-    /// Llamar desde el onClick del boton EN EL INSPECTOR de Unity.
-    /// </summary>
-    public void Abrir()
-    {
-        if (canvasMenuPrincipal != null)
-            canvasMenuPrincipal.SetActive(false);
-
-        gameObject.SetActive(true);
-        // ActualizarUI() se llama automaticamente en OnEnable
-    }
 
     /// <summary>Cierra el panel y reactiva el menu principal.</summary>
     public void Cerrar()

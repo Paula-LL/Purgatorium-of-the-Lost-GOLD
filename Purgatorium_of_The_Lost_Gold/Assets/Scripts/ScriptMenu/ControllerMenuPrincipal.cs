@@ -13,12 +13,11 @@ public class ControllerMenuPrincipal : MonoBehaviour
 
     [Header("Botones Extra para Canvas")]
     [SerializeField] private Button botonAyuda;
-    [SerializeField] private Button botonCreditos;
 
     [Header("Configuracion de Escena")]
     [SerializeField] private string nombreEscena = "Mapa";
 
-    [Header("Configuracion de Canvas Principal")]
+    [Header("Configuracion de Canvas Ajustes")]
     [SerializeField] private Canvas canvasActivar;
     [SerializeField] private Canvas canvasDesactivar;
 
@@ -26,8 +25,9 @@ public class ControllerMenuPrincipal : MonoBehaviour
     [SerializeField] private Canvas canvasActivarAyuda;
     [SerializeField] private Canvas canvasDesactivarMenu1;
 
-    [Header("Configuracion de Canvas Creditos")]
-    [SerializeField] private Canvas canvasActivarCreditos;
+    [Header("Configuracion de Canvas Estadisticas")]
+    [SerializeField] private Button botonEstadisticasCanvas;
+    [SerializeField] private Canvas canvasActivarEstadis;
     [SerializeField] private Canvas canvasDesactivarMenu;
 
     [Header("Sonido de Botones")]
@@ -60,11 +60,12 @@ public class ControllerMenuPrincipal : MonoBehaviour
             botonAyuda.onClick.AddListener(ReproducirSonido);
         }
 
-        if (botonCreditos != null)
+        if (botonEstadisticasCanvas != null)
         {
-            botonCreditos.onClick.AddListener(AlternarCanvasCreditos);
-            botonCreditos.onClick.AddListener(ReproducirSonido);
+            botonEstadisticasCanvas.onClick.AddListener(AlternarCanvasNuevo);
+            botonEstadisticasCanvas.onClick.AddListener(ReproducirSonido);
         }
+
     }
 
     private void ReproducirSonido()
@@ -101,10 +102,10 @@ public class ControllerMenuPrincipal : MonoBehaviour
             canvasDesactivarMenu1.gameObject.SetActive(false);
     }
 
-    public void AlternarCanvasCreditos()
+    public void AlternarCanvasNuevo()
     {
-        if (canvasActivarCreditos != null)
-            canvasActivarCreditos.gameObject.SetActive(true);
+        if (canvasActivarEstadis != null)
+            canvasActivarEstadis.gameObject.SetActive(true);
 
         if (canvasDesactivarMenu != null)
             canvasDesactivarMenu.gameObject.SetActive(false);
