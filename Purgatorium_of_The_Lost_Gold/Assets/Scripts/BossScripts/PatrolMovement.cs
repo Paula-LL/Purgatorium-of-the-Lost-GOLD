@@ -43,6 +43,12 @@ public class PatrolMovement : MonoBehaviour
 
     private void Update()
     {
+        if (HayAtaqueActivo)
+        {
+            EstaEnMovimiento = false;
+            return;
+        }
+
         if (_estaEsperando)
         {
             EstaEnMovimiento = false;
