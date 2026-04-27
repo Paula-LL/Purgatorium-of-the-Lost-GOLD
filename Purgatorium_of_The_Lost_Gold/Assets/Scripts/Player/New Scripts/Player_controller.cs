@@ -95,7 +95,7 @@ public class Player_controller : MonoBehaviour
 
         if (!isDashing && moveDirection.magnitude > 0.1f /*&& currentPlayerStats.movement.dashCooldown >= Time.deltaTime*/)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 animator.SetBool("isDashing", true);
                 StartDash();
