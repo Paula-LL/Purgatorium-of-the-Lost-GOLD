@@ -2812,10 +2812,12 @@ GameObject:
   - component: {fileID: 7733458308056106239}
   - component: {fileID: 8625213859620270082}
   - component: {fileID: 9065701454855342957}
-  - component: {fileID: 9065701454855342960}
   - component: {fileID: 9065701454855342958}
   - component: {fileID: 9065701454855342961}
+  - component: {fileID: 9065701454855342965}
   - component: {fileID: 9065701454855342962}
+  - component: {fileID: 9065701454855342964}
+  - component: {fileID: 9065701454855342963}
   m_Layer: 0
   m_Name: BossFinal
   m_TagString: Boss
@@ -4053,27 +4055,6 @@ MonoBehaviour:
     attackDamage: 0
     critChance: 0.1
     critMultiplier: 2
---- !u!114 &9065701454855342960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5141882400808259815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326602c547e742b4aba86dbb014a1825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  etiquetaJugador: Player
-  rangoDeteccion: 15
-  colliderAtaque: {fileID: 1065683655}
-  tiempoAviso: 1
-  tiempoActivoGolpe: 0.3
-  tiempoEntreGolpes: 0.5
-  tiempoEntreAtaques: 4
-  "da\xF1o": 1
-  boss: {fileID: 5141882400808259815}
 --- !u!114 &9065701454855342961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4119,8 +4100,79 @@ MonoBehaviour:
   tiempoEsquive: 1.5
   duracionRetorno: 1
   tiempoEntreAtaques: 5
-  colliderDash: {fileID: 0}
+  colliderDash: {fileID: 1065683655}
   "da\xF1o": 1.5
+  boss: {fileID: 5141882400808259815}
+--- !u!114 &9065701454855342963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141882400808259815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497b51774e4e66d42926efcb51094a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  etiquetaJugador: Player
+  rangoDeteccion: 20
+  pivoteCollider: {fileID: 1949898234}
+  colliderDanio: {fileID: 60380262}
+  velocidadRotacion: 120
+  numRotaciones: 2
+  radioOrbita: 2
+  radioMovimientoBoss: 1
+  velocidadGiroBoss: 300
+  duracionRetorno: 0.5
+  tiempoAviso: 0.8
+  tiempoQuieto: 2
+  tiempoEntreAtaques: 3
+  "da\xF1o": 1
+  cooldownDanio: 0.5
+  boss: {fileID: 5141882400808259815}
+--- !u!114 &9065701454855342964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141882400808259815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2326ec6186cd57f428a14593e5b70a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  etiquetaJugador: Player
+  rangoDeteccion: 20
+  colliderGarfio: {fileID: 1065683655}
+  distanciaMaxima: 8
+  velocidadProyectil: 7
+  tiempoAtraccion: 0.6
+  distanciaParada: 1.5
+  tiempoAviso: 0.8
+  tiempoEntreAtaques: 3
+  boss: {fileID: 5141882400808259815}
+--- !u!114 &9065701454855342965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141882400808259815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326602c547e742b4aba86dbb014a1825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  etiquetaJugador: Player
+  rangoDeteccion: 20
+  colliderAtaque: {fileID: 1065683655}
+  tiempoAviso: 1
+  tiempoActivoGolpe: 0.3
+  tiempoEntreGolpes: 0.5
+  tiempoEntreAtaques: 3
+  "da\xF1o": 1
   boss: {fileID: 5141882400808259815}
 --- !u!1 &9113118384228324997
 GameObject:

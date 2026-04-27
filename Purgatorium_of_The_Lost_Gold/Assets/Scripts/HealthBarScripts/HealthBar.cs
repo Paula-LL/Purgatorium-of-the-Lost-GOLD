@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     public TMP_Text healthBarText;
 
-    private void Start()
+    private void Update()
     {
         UpdateHealthBar();
     }

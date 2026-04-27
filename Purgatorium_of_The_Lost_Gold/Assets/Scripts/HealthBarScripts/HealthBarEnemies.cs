@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBarEnemies : MonoBehaviour
@@ -29,7 +31,6 @@ public class HealthBarEnemies : MonoBehaviour
 
     private void LateUpdate()
     {
-        canvasVida.transform.LookAt(Camera.main.transform.position);
-
+            canvasVida.transform.LookAt(Camera.main.transform.position);
     }
 }
