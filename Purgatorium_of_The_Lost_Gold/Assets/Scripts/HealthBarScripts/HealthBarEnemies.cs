@@ -26,4 +26,10 @@ public class HealthBarEnemies : MonoBehaviour
         healthBar.fillAmount = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth / Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
         healthBarText.text = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth + "/" + Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
     }
+
+    private void LateUpdate()
+    {
+        canvasVida.transform.LookAt(Camera.main.transform.position);
+
+    }
 }

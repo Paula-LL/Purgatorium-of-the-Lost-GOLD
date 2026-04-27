@@ -1079,9 +1079,8 @@ MonoBehaviour:
   calidadVideo: {fileID: 1674843802}
   cambiarEscenaButton: {fileID: 313706000}
   salirButton: {fileID: 51193996}
-  escenaMenu: Menu
+  escenaMenu: main menu
   escenaVictoria: Victoria
-  animator: {fileID: 0}
 --- !u!1 &851552285
 GameObject:
   m_ObjectHideFlags: 0

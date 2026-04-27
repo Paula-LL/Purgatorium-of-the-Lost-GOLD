@@ -5750,11 +5750,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 298025558208166921, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 534.99
+      value: 554.63
       objectReference: {fileID: 0}
     - target: {fileID: 298025558208166921, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -382.5047
+      value: -392.32474
       objectReference: {fileID: 0}
     - target: {fileID: 1123801248361226414, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_Pivot.x
@@ -5930,7 +5930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4239068728712911181, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4754126122727075015, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_text
@@ -5962,7 +5962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5728641428607287083, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_text
-      value: 'Dash : Click derecho'
+      value: 'Dash: Click derecho'
       objectReference: {fileID: 0}
     - target: {fileID: 5728641428607287083, guid: c903ae4f5a04fea49a01a5a903688a17, type: 3}
       propertyPath: m_fontAsset
@@ -36834,7 +36834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3217195421845831043, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4313655434710512118, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
       propertyPath: m_fontAsset

@@ -32,7 +32,7 @@ public class MenuPausaController : MonoBehaviour
     public Button salirButton;
 
     [Header("SCENE MANAGEMENT")]
-    public string escenaMenu = "Menu";
+    public string escenaMenu = "main menu";
     public string escenaVictoria = "Victoria";
 
     private static MenuPausaController instance;
