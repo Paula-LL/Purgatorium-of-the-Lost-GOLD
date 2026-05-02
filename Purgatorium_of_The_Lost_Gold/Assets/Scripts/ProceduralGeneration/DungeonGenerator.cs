@@ -468,7 +468,15 @@ public class DungeonGenerator : MonoBehaviour
 
     private GameObject GetRandomEnemyPrefab()
     {
-        return enemyPrefabs[UnityEngine.Random.Range(0, 1)];
+        int randomEnemySelect = UnityEngine.Random.Range(0, 100);
+        if (randomEnemySelect >= 0 && randomEnemySelect <= 50)
+        {
+            return enemyPrefabs[0];
+        }
+        else
+        {
+            return enemyPrefabs[1];
+        }
     }
 
     /*private GameObject SpawnEnemy(BOSS_ID bossId, Vector3 position)

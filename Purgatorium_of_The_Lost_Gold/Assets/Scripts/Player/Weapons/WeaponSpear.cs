@@ -4,12 +4,12 @@ public class WeaponSpear : MonoBehaviour
 {
     CapsuleCollider capsuleCollider;
     private PlayerAttack playerAttack;
+    [SerializeField] private ParticleSystem spearGlow;
 
     private void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         playerAttack = GetComponentInParent<PlayerAttack>();
-
         if (playerAttack == null)
             Debug.LogError("WeaponSpear: PlayerAttack NOT FOUND in parent!");
     }
@@ -20,11 +20,18 @@ public class WeaponSpear : MonoBehaviour
         {
             EnemigoDist dist = other.GetComponent<EnemigoDist>();
             EnemigoBase baseEnemy = other.GetComponent<EnemigoBase>();
-
+            
             if (dist != null)
+            {
+                spearGlow.Play();
                 dist.TakeDamage(playerAttack.currentAttackDamage);
+            } 
             else if (baseEnemy != null)
+            {
+                spearGlow.Play();
                 baseEnemy.TakeDamage(playerAttack.currentAttackDamage);
+            }
+               
 
             EstadisticasJuego.RegistrarDanoHecho(playerAttack.currentAttackDamage);
         }
@@ -34,10 +41,12 @@ public class WeaponSpear : MonoBehaviour
             BossHealth boss = other.GetComponent<BossHealth>();
             if (boss != null)
             {
+                spearGlow.Play();   
                 boss.RecibirDanio(playerAttack.currentAttackDamage);
                 EstadisticasJuego.RegistrarDanoHecho(playerAttack.currentAttackDamage);
             }
         }
+       
     }
 
     public void EnableTriggerCapsule()

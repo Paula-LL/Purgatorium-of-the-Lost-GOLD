@@ -18,11 +18,12 @@ public class EnemigoDist : MonoBehaviour
     private Transform player;
     private float nextShootTime;
     private bool playerDetected = false;
+    private Animator animator;
 
     void Start()
     {
         stats.ResetHealth();
-
+        animator = GetComponent<Animator>();
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             player = playerObj.transform;
@@ -43,12 +44,16 @@ public class EnemigoDist : MonoBehaviour
 
         if (distance > stopDistance)
             transform.position += transform.forward * stats.moveSpeed * Time.deltaTime;
+            animator.SetFloat("Speed", 1);
 
         if (distance <= stopDistance && Time.time >= nextShootTime)
         {
+            animator.SetFloat("Speed", 0);
+            animator.SetBool("isAttacking", true);
             SpawnProjectile();
             nextShootTime = Time.time + shootCooldown;
         }
+        
     }
 
     void SpawnProjectile()
@@ -60,13 +65,18 @@ public class EnemigoDist : MonoBehaviour
     public void TakeDamage(float damage)
     {
         float finalDamage = stats.CalcularDanoRecibido(damage);
-        stats.currentHealth -= (int)finalDamage;
+        stats.currentHealth -= (float)finalDamage;
         Debug.Log($"{gameObject.name} recibio {finalDamage} dano. Vida: {stats.currentHealth}/{stats.maxHealth}");
         if (stats.currentHealth <= 0)
         {
+            animator.SetBool("isDead", true );
             EstadisticasJuego.RegistrarEnemigoCaido();
-            Destroy(gameObject);
+            Invoke("DestruirEnemigo", 3f);
         }
+    }
+    public void DestruirEnemigo()
+    {
+        Destroy(gameObject);    
     }
 
     void OnDrawGizmosSelected()

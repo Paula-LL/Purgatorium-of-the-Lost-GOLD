@@ -2053,6 +2053,7 @@ MonoBehaviour:
   numberOfRooms: 12
   enemyPrefabs:
   - {fileID: 1182933668868045027, guid: 592d744548a4c434d9cc735679b667f0, type: 3}
+  - {fileID: 5141632416708081520, guid: 06e64f2d0563a8b4fbe70edac73a6a45, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}
   teletransportadorSeguro: 1
   onFinishFadeIn:

@@ -44,6 +44,7 @@ public class Player_controller : MonoBehaviour
     [SerializeField]
     private ParticleSystem characterDamageParticles;
     private ParticleSystem characterDamageParticlesInstance;
+    [SerializeField] private ParticleSystem characterDashParticles;
 
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class Player_controller : MonoBehaviour
         
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
+        characterDashParticles.Stop();
     }
 
     //Enemy HP going past 0 (negative)
@@ -99,6 +101,7 @@ public class Player_controller : MonoBehaviour
             {
                 animator.SetBool("isDashing", true);
                 StartDash();
+                characterDashParticles.Play();
             }
         }
         else if (isDashing)
@@ -108,6 +111,7 @@ public class Player_controller : MonoBehaviour
             {
                 animator.SetBool("isDashing", false);
                 isDashing = false;
+                characterDashParticles.Stop();
             }
         }
 

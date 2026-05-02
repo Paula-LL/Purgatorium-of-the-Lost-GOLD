@@ -25,8 +25,16 @@ public class HealthBarEnemies : MonoBehaviour
     }
     public void UpdateHealthBar()
     {
-        healthBar.fillAmount = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth / Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
-        healthBarText.text = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth + "/" + Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
+        if (Enemigo.GetComponent<EnemigoBase>() != null)
+        {
+            healthBar.fillAmount = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth / Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
+            healthBarText.text = Enemigo.GetComponent<EnemigoBase>().stats.currentHealth + "/" + Enemigo.GetComponent<EnemigoBase>().stats.maxHealth;
+        }
+        else if (Enemigo.GetComponent<EnemigoDist>() != null)
+        {
+            healthBar.fillAmount = Enemigo.GetComponent<EnemigoDist>().stats.currentHealth / Enemigo.GetComponent<EnemigoDist>().stats.maxHealth;
+            healthBarText.text = Enemigo.GetComponent<EnemigoDist>().stats.currentHealth + "/" + Enemigo.GetComponent<EnemigoDist>().stats.maxHealth;
+        }
     }
 
     private void LateUpdate()
