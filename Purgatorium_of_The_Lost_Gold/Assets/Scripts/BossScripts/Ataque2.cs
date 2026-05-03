@@ -26,9 +26,11 @@ public class Ataque2 : MonoBehaviour
     private bool           _yaGolpeado  = false;
     private PatrolMovement _patrulla;
     public  GameObject     boss;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         GameObject obj = GameObject.FindGameObjectWithTag(etiquetaJugador);
         if (obj != null) jugador = obj.transform;
 
@@ -75,6 +77,7 @@ public class Ataque2 : MonoBehaviour
 
         Vector3 posRetroceso = posInicial - direccion * distanciaRetroceso;
         float t = 0f;
+        animator.SetTrigger("isDashingBack");
         while (t < duracionRetroceso)
         {
             t += Time.deltaTime;
@@ -86,7 +89,7 @@ public class Ataque2 : MonoBehaviour
 
         if (colliderDash != null) colliderDash.enabled = true;
         dashActivo = true;
-
+        animator.SetTrigger("isDashingFront");
         while (Vector3.Distance(boss.transform.position, posJugador) > 0.25f && dashActivo)
         {
             boss.transform.position = Vector3.MoveTowards(
@@ -109,7 +112,7 @@ public class Ataque2 : MonoBehaviour
             yield return null;
         }
         boss.transform.position = posInicial;
-
+        animator.SetTrigger("DashEnd");
         if (_patrulla != null) _patrulla.enabled = true;
 
         PatrolMovement.HayAtaqueActivo = false;

@@ -27,9 +27,11 @@ public class Ataque3 : MonoBehaviour
     private PatrolMovement _patrulla;
     private Ataque1        _ataque1;
     public  GameObject     boss;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         GameObject obj = GameObject.FindGameObjectWithTag(etiquetaJugador);
         if (obj != null) jugador = obj.transform;
 
@@ -72,7 +74,7 @@ public class Ataque3 : MonoBehaviour
         {
             yield return new WaitForSeconds(tiempoEntreAtaques);
             PatrolMovement.HayAtaqueActivo = false;
-            PatrolMovement.TurnoAtaque = 4;
+            PatrolMovement.TurnoAtaque = 1;
             cicloEnCurso = false;
             yield break;
         }
@@ -104,6 +106,7 @@ public class Ataque3 : MonoBehaviour
 
         if (jugadorCapturado && jugador != null)
         {
+            animator.SetBool("isGrabAttack", true);
             Vector3 posJugadorInicio = jugador.position;
             Vector3 posDetencion     = boss.transform.position + boss.transform.forward * distanciaParada;
             float   t = 0f;
@@ -118,6 +121,7 @@ public class Ataque3 : MonoBehaviour
             colliderGarfio.transform.localRotation = rotLocalInicial;
 
             PatrolMovement.HayAtaqueActivo = false;
+            animator.SetBool("isGrabAttack", false);
             cicloEnCurso = false;
             if (_ataque1 != null) _ataque1.ForzarCombo();
             yield break;
@@ -126,10 +130,11 @@ public class Ataque3 : MonoBehaviour
         colliderGarfio.transform.localPosition = posLocalInicial;
         colliderGarfio.transform.localRotation = rotLocalInicial;
 
+        
         PatrolMovement.HayAtaqueActivo = false;
         yield return new WaitForSeconds(tiempoEntreAtaques);
 
-        PatrolMovement.TurnoAtaque = 4;
+        PatrolMovement.TurnoAtaque = 1;
         cicloEnCurso = false;
     }
 

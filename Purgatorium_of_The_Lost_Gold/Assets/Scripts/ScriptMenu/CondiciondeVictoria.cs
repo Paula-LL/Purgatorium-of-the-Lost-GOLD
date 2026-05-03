@@ -78,7 +78,7 @@ public class CondiciondeVictoria : MonoBehaviour
     }
     IEnumerator muerteDelBoss()
     {
-        bossObject.GetComponent<Animator>().SetBool("Die", true);
+        
         yield return new WaitForSecondsRealtime(8f);
         Destroy(bossObject);
         SceneManager.LoadScene(sceneName);

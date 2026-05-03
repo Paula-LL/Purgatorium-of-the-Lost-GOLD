@@ -24,9 +24,10 @@ public class Ataque1 : MonoBehaviour
     private bool           golpeActivo  = false;
     private PatrolMovement _patrulla;
     public  GameObject     boss;
-
+    private Animator animator;
     void Start()
     {
+        animator = GetComponent<Animator>();    
         GameObject obj = GameObject.FindGameObjectWithTag(etiquetaJugador);
         if (obj != null) jugador = obj.transform;
 
@@ -60,9 +61,10 @@ public class Ataque1 : MonoBehaviour
         PatrolMovement.HayAtaqueActivo = true;
 
         yield return new WaitForSeconds(tiempoAviso);
-
+        animator.SetBool("isAttackingBasic", true);
         for (int i = 0; i < 3; i++)
         {
+            
             golpeActivo = true;
             if (colliderAtaque != null) colliderAtaque.enabled = true;
 
@@ -72,8 +74,9 @@ public class Ataque1 : MonoBehaviour
             if (colliderAtaque != null) colliderAtaque.enabled = false;
 
             if (i < 2) yield return new WaitForSeconds(tiempoEntreGolpes);
+           
         }
-
+        animator.SetBool("isAttackingBasic", false);
         PatrolMovement.HayAtaqueActivo = false;
         yield return new WaitForSeconds(tiempoEntreAtaques);
 

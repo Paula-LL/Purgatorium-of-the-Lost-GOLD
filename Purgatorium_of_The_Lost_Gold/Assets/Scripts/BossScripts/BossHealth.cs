@@ -9,8 +9,11 @@ public class BossHealth : MonoBehaviour
     public float VidaMaxima  => stats.maxHealth;
     public bool  EstaMuerto  => stats.currentHealth <= 0f;
 
+    private Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();    
         stats.ResetHealth();
     }
 
@@ -25,11 +28,13 @@ public class BossHealth : MonoBehaviour
         Debug.Log($"[BossHealth] {gameObject.name} recibio {finalDamage} dano. Vida: {stats.currentHealth}/{stats.maxHealth}");
 
         if (stats.currentHealth <= 0f)
+            animator.SetBool("isDeath", true);
             Morir();
     }
 
     private void Morir()
     {
+        
         Debug.Log($"[BossHealth] {gameObject.name} ha muerto.");
         EstadisticasJuego.RegistrarBossCaido();
     }

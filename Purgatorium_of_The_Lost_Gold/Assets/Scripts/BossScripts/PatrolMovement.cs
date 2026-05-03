@@ -24,9 +24,12 @@ public class PatrolMovement : MonoBehaviour
     public bool EstaEnMovimiento { get; private set; } = false;
     public static bool HayAtaqueActivo = false;
     public static int  TurnoAtaque     = 1;   // 1 = Ataque1, 2 = Ataque2
+    private Animator animator;
+    public GameObject boss;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();    
         if (puntos == null || puntos.Length < 2)
         {
             Debug.LogWarning($"[PatrolMovement] {gameObject.name}: necesitas al menos 2 puntos asignados.", this);
@@ -39,6 +42,8 @@ public class PatrolMovement : MonoBehaviour
 
         if (puntos[0] != null)
             transform.position = puntos[0].position;
+
+        
     }
 
     private void Update()
@@ -61,36 +66,43 @@ public class PatrolMovement : MonoBehaviour
         }
 
         EstaEnMovimiento = true;
+        animator.SetFloat("Speed", 1);
         MoverHaciaElSiguiente();
     }
 
     private void MoverHaciaElSiguiente()
     {
+       
         Transform objetivo = ObtenerPuntoValido(_indicePuntoActual);
-        if (objetivo == null) return;
-
-        transform.position = Vector3.MoveTowards(
+        if (objetivo == null && boss.GetComponent<BossHealth>().EstaMuerto == true) return;
+        if(boss.GetComponent<BossHealth>().EstaMuerto == false)
+        {
+            transform.position = Vector3.MoveTowards(
             transform.position,
             objetivo.position,
             velocidad * Time.deltaTime
+
         );
 
-        if (mirarHaciaElMovimiento)
-        {
-            Vector3 direccion = (objetivo.position - transform.position);
-            direccion.y = 0f;
-            if (direccion.sqrMagnitude > 0.001f)
+            if (mirarHaciaElMovimiento)
             {
-                Quaternion rotacion = Quaternion.LookRotation(direccion);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotacion, 10f * Time.deltaTime);
+                Vector3 direccion = (objetivo.position - transform.position);
+                direccion.y = 0f;
+                if (direccion.sqrMagnitude > 0.001f)
+                {
+                    Quaternion rotacion = Quaternion.LookRotation(direccion);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotacion, 10f * Time.deltaTime);
+                }
+            }
+
+            if (Vector3.Distance(transform.position, objetivo.position) <= distanciaLlegada)
+            {
+                animator.SetFloat("Speed", 0);
+                transform.position = objetivo.position;
+                AvanzarAlSiguientePunto();
             }
         }
-
-        if (Vector3.Distance(transform.position, objetivo.position) <= distanciaLlegada)
-        {
-            transform.position = objetivo.position;
-            AvanzarAlSiguientePunto();
-        }
+        
     }
 
     private void AvanzarAlSiguientePunto()
@@ -100,8 +112,11 @@ public class PatrolMovement : MonoBehaviour
 
         if (tiempoEsperaEnPunto > 0f)
         {
+            
             _temporizadorEspera = tiempoEsperaEnPunto;
             _estaEsperando = true;
+            animator.SetFloat("Speed", 0);
+
         }
     }
 
