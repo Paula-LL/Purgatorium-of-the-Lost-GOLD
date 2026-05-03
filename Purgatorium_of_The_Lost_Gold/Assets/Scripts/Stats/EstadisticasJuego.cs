@@ -111,6 +111,10 @@ public class EstadisticasJuego : MonoBehaviour
         if (Instancia == null) return;
         Instancia.MuerteJugador++;
         Instancia.GuardarEstadisticas();
+
+        // Enviar sesión a MongoDB Atlas al morir
+        if (MongoDBManager.Instancia != null && MongoDBManager.Instancia.EstaConnectat())
+            MongoDBManager.Instancia.EnviarSessio();
     }
 
     public static void RegistrarVictoria()
@@ -118,6 +122,10 @@ public class EstadisticasJuego : MonoBehaviour
         if (Instancia == null) return;
         Instancia.Victorias++;
         Instancia.GuardarEstadisticas();
+
+        // Enviar sesión a MongoDB Atlas al ganar
+        if (MongoDBManager.Instancia != null && MongoDBManager.Instancia.EstaConnectat())
+            MongoDBManager.Instancia.EnviarSessio();
     }
 
     public static void RegistrarDanoHecho(float cantidad)
