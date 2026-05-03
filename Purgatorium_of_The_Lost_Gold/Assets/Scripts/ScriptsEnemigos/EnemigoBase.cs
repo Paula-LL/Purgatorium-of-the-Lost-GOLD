@@ -120,6 +120,7 @@ public class EnemigoBase : MonoBehaviour
 
     void Die()
     {
+        animator.SetBool("isDead", true);
         enemyList.Remove(this);
         EstadisticasJuego.RegistrarEnemigoCaido();
         if (animator != null)
