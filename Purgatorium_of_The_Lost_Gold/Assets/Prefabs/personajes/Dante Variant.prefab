@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: currentPlayerStats.attackDamage
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: currentPlayerStats.attackRadius

@@ -29,7 +29,7 @@ public class PlayerStats
         baseHealth = maxHealth;
         currentHealth = maxHealth;
 
-        baseDamage = 1;
+        baseDamage = 0.5f;
         attackDamage = baseDamage;
 
         defense = 0;

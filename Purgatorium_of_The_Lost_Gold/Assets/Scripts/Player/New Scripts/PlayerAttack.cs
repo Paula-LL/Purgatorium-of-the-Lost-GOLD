@@ -13,7 +13,10 @@ public class PlayerAttack : MonoBehaviour
     {
         player = Player_controller.instance;
     }
-
+    private void Update()
+    {
+        currentAttackDamage = player.currentPlayerStats.attackDamage;
+    }
     public void PerformAttack()
     {
         Attack attack = new Attack(player.currentPlayerStats);

@@ -67,7 +67,21 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        //HandleAttack();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("Modo dios Dante Activado");
+            modoDiosDante();
+        }
+    }
+
+    public void modoDiosDante()
+    {
+        if (currentPlayerStats.maxHealth <= 100)
+        {
+            currentPlayerStats.maxHealth = 1000;
+            currentPlayerStats.currentHealth = 1000;
+            currentPlayerStats.attackDamage = 1000;
+        }
     }
     Vector3 GetMoveDirection(float x, float z)
     {
