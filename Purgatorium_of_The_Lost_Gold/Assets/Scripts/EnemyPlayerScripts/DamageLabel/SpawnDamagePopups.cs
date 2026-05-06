@@ -22,7 +22,6 @@ public class SpawnDamagePopups : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

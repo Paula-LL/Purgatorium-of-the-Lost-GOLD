@@ -23,6 +23,7 @@ public class BossHealth : MonoBehaviour
 
         float finalDamage = stats.CalcularDanoRecibido(cantidad);
         stats.currentHealth -= finalDamage;
+        ShowDamage(finalDamage);
         stats.currentHealth = Mathf.Max(stats.currentHealth, 0f);
 
         Debug.Log($"[BossHealth] {gameObject.name} recibio {finalDamage} dano. Vida: {stats.currentHealth}/{stats.maxHealth}");
@@ -31,7 +32,10 @@ public class BossHealth : MonoBehaviour
             animator.SetBool("isDeath", true);
             Morir();
     }
-
+    public void ShowDamage(float amount)
+    {
+        SpawnDamagePopups.Instance.DamageDone(amount, transform.position, false);
+    }
     private void Morir()
     {
         

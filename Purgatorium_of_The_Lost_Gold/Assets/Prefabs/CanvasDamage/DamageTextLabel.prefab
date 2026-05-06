@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1205081755340215734}
-  normalFontSize: 42
-  critFontSize: 52
+  normalFontSize: 30
+  critFontSize: 40
   normalFontColouur: {r: 1, g: 0, b: 0, a: 1}
   startClourFadePercent: 0.8
   easeCurve:
@@ -176,8 +176,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  highPointOfsset: {x: 0, y: 0}
-  lowPointOffset: {x: 0, y: 0}
+  highPointOfsset: {x: 10, y: 10}
+  lowPointOffset: {x: 20, y: 10}
   heigthVariationMax: 150
   heigthVariationMin: 50
   displayGizmos: 0

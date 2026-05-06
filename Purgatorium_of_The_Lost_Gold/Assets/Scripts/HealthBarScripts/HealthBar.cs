@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
     }
 
     public void UpdateHealthBar() { 
+
         healthBar.fillAmount = Player_controller.instance.currentPlayerStats.currentHealth/Player_controller.instance.currentPlayerStats.maxHealth;
         healthBarText.text = Player_controller.instance.currentPlayerStats.currentHealth + "/" + Player_controller.instance.currentPlayerStats.maxHealth; 
     }
