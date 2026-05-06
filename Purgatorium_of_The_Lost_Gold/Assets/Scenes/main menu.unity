@@ -36827,6 +36827,26 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 315031524988701082, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 315031524988701082, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0980a3fd1e3532469b2796979fb8304, type: 3}
+    - target: {fileID: 315031524988701082, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 315031524988701082, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 315031524988701082, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3217195421845831043, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
       propertyPath: m_Name
       value: Estadisticas
@@ -36846,6 +36866,14 @@ PrefabInstance:
     - target: {fileID: 4313655434710512118, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021868386779492148, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021868386779492148, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7793507909912981309, guid: b6f7b6f59793060489a1d2ce90c964de, type: 3}
       propertyPath: m_Pivot.x
