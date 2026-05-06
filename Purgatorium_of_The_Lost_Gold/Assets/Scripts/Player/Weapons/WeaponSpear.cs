@@ -25,11 +25,13 @@ public class WeaponSpear : MonoBehaviour
             {
                 spearGlow.Play();
                 dist.TakeDamage(playerAttack.currentAttackDamage);
+                ShowDamage(playerAttack.currentAttackDamage);
             } 
             else if (baseEnemy != null)
             {
                 spearGlow.Play();
                 baseEnemy.TakeDamage(playerAttack.currentAttackDamage);
+                ShowDamage(playerAttack.currentAttackDamage);
             }
                
 
@@ -48,7 +50,10 @@ public class WeaponSpear : MonoBehaviour
         }
        
     }
-
+    public void ShowDamage(float amount)
+    {
+        SpawnDamagePopups.Instance.DamageDone(amount, transform.position, false);
+    }
     public void EnableTriggerCapsule()
     {
         capsuleCollider.enabled = true;

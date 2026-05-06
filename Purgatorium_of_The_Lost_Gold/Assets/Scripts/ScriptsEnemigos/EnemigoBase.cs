@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemigoBase : MonoBehaviour
 {
@@ -147,4 +148,5 @@ public class EnemigoBase : MonoBehaviour
             timeInRange = 0f;
         }
     }
+    
 }

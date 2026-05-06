@@ -78,6 +78,7 @@ public class EnemigoDist : MonoBehaviour
     {
         Destroy(gameObject);    
     }
+    
 
     void OnDrawGizmosSelected()
     {
