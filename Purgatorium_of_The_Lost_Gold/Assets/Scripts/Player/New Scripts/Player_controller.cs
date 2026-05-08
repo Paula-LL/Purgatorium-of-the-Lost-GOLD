@@ -45,6 +45,8 @@ public class Player_controller : MonoBehaviour
     private ParticleSystem characterDamageParticles;
     private ParticleSystem characterDamageParticlesInstance;
     [SerializeField] private ParticleSystem characterDashParticles;
+    [SerializeField] private AudioSource footsteps;
+    private bool estaCorriendo = true;
 
     private void Awake()
     {
@@ -103,10 +105,18 @@ public class Player_controller : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, currentMovement.rotationSpeed * Time.deltaTime);
             animator.SetFloat("Speed", 1.5f);
+            if(estaCorriendo == true)
+            {
+                footsteps.Play();
+                estaCorriendo = false;
+            }
+           
         }
         if (moveDirection == Vector3.zero)
         {
             animator.SetFloat("Speed", 0f);
+            footsteps.Stop();
+            estaCorriendo = true;
         }
 
         if (!isDashing && moveDirection.magnitude > 0.1f /*&& currentPlayerStats.movement.dashCooldown >= Time.deltaTime*/)
@@ -135,7 +145,7 @@ public class Player_controller : MonoBehaviour
 
         
     }
-
+    
     void StartDash()
     {
         isDashing = true;

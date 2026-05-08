@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
 
     public float currentAttackDamage;
 
+    [SerializeField] private AudioSource attacksound;
+
     void Start()
     {
         player = Player_controller.instance;
@@ -20,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     public void PerformAttack()
     {
         Attack attack = new Attack(player.currentPlayerStats);
+        attacksound.Play();
         ApplyAttackModifiers(attack);
 
         float finalDamage = attack.attackDamage;
