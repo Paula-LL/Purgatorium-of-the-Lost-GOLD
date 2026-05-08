@@ -16107,7 +16107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d30ac5e8a3c5b84b900332c335ac34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionString: mongodb+srv://<P1234>:<P1234>@cluster0.adlpjpz.mongodb.net/?appName=Cluster0
+  connectionString: 'mongodb+srv://P1234:P1234@cluster0.adlpjpz.mongodb.net/?appName=Cluster0 '
   nomBaseDeDades: PurgatoriumDB
   colSessions: sessions_joc
   colEstadistiques: estadistiques_jugador

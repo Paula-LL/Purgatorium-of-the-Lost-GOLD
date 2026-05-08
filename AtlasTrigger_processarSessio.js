@@ -1,21 +1,5 @@
-// ============================================================
-//  ATLAS TRIGGER FUNCTION: processarSessio
-//  Projecte: Purgatorium of the Lost - GOLD
-// ============================================================
-//  CONFIGURACIÓ DEL TRIGGER A ATLAS APP SERVICES:
-//    - Tipus:         Database Trigger
-//    - Nom:           onNovaSessioJoc
-//    - Cluster:       (el teu cluster)
-//    - Database:      PurgatoriumDB
-//    - Collection:    sessions_joc
-//    - Operation:     Insert
-//    - Full Document: Activat (✓)
-//    - Function:      processarSessio  ← aquest fitxer
-// ============================================================
-
 exports = async function(changeEvent) {
 
-  // 1. Obtenir el document inserit des de Unity
   const sessio = changeEvent.fullDocument;
 
   if (!sessio || !sessio.playerId) {
@@ -26,16 +10,11 @@ exports = async function(changeEvent) {
   const playerId = sessio.playerId;
   const stats    = sessio.estadistiques || {};
 
-  // 2. Accedir a la col·lecció d'estadístiques agregades
-  const mongodb    = context.services.get("Cluster0");  // Nom del cluster a Atlas App Services
+  const mongodb    = context.services.get("Cluster0");
   const colEstats  = mongodb.db("PurgatoriumDB").collection("estadistiques_jugador");
   const colSessions = mongodb.db("PurgatoriumDB").collection("sessions_joc");
 
   try {
-    // 3. Actualitzar estadístiques agregades del jugador (upsert)
-    //    $inc: acumular valors numèrics de forma atòmica
-    //    $max: guardar el valor màxim (per exemple, la sessió més llarga)
-    //    $set: actualitzar timestamp de l'última sessió
     await colEstats.updateOne(
       { playerId: playerId },
       {
@@ -60,14 +39,12 @@ exports = async function(changeEvent) {
           versioJoc:     sessio.versioJoc  || "unknown"
         },
         $setOnInsert: {
-          // Només s'estableix quan es crea el document per primer cop
           primeraPartida: sessio.iniciSessio || new Date()
         }
       },
       { upsert: true }
     );
 
-    // 4. Calcular ràtio de victòries i actualitzar-lo
     const estatActual = await colEstats.findOne({ playerId: playerId });
     if (estatActual && estatActual.totalPartidesJugades > 0) {
       const ratio = estatActual.totalVictorias / estatActual.totalPartidesJugades;
