@@ -5,15 +5,14 @@ using UnityEngine;
 public class TutorialController : MonoBehaviour
 {
     [SerializeField] GameObject panelshowMovementControls;
-
-    private bool isCloseningPanelMovementControls = false;  
+    [SerializeField] GameObject panelShowAttackAndDash;
+   
    
     
     private void Start()
     {
-        StartCoroutine(showControls());
+        StartCoroutine(showControls()); 
     }
-
     public IEnumerator showControls()
     {
         yield return new WaitForSeconds(5f);
@@ -22,7 +21,12 @@ public class TutorialController : MonoBehaviour
     public void desactivarPanelMovementControls()
     {
         panelshowMovementControls.SetActive(false);
-        isCloseningPanelMovementControls = true;
+        panelShowAttackAndDash.SetActive(false);    
 
+    }
+    public void showDashAndAttack()
+    {
+        panelshowMovementControls.SetActive(false);
+        panelShowAttackAndDash.SetActive(true) ;
     }
 }
