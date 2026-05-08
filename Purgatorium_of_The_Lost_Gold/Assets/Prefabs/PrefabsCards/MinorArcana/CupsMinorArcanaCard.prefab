@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 508377053705994474, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 806c699afa7011a4b9c70bc533f00ea9, type: 2}
+      objectReference: {fileID: 2100000, guid: 3cf2ed144bc49ce4583e039d8ac8b84c, type: 2}
     - target: {fileID: 6959202092552110806, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7773175307628517484, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
       propertyPath: m_Name
-      value: TheLoversInvertedCard
+      value: CupsMinorArcanaCard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
