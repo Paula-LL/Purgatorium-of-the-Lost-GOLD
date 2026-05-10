@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: The Hanged Man Normal Scriptable
   m_EditorClassIdentifier: 
   dropChance: 50
-  hangedManAttackUp: 0
+  hangedManAttackUp: 2

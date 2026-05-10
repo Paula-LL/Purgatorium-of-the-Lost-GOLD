@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: The Chariot Inverted Scriptable
   m_EditorClassIdentifier: 
   dropChance: 100
-  charriotInvertedSpeedDown: 75
+  charriotInvertedSpeedDown: 50
