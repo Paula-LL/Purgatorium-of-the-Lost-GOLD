@@ -26,6 +26,30 @@ MonoBehaviour:
     m_Localized: 8aa01501ec9853040b9b5cae2e69387e
     m_Metadata:
       m_Items: []
+  - m_Id: 2334061641728
+    m_Localized: 20619e3e8b2b47345b3a5d140a0ff373
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539616092160
+    m_Localized: 211ea973bda5a914e8c3fce697d8c882[Ajuda]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2688690044928
+    m_Localized: f28a3af65886aa7449554b46d4eb9c76[Sortir]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876070576128
+    m_Localized: 0832989723bf2194795636522b41a23a
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3032815910912
+    m_Localized: 141bfd686cd1bc9459c43b0f782825b9[programadores catalan]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3260621144064
+    m_Localized: a61e735ad5ac34944b0f29436d7066bd
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

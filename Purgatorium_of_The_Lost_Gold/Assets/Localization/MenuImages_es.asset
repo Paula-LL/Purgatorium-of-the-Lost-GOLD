@@ -22,6 +22,34 @@ MonoBehaviour:
     m_Localized: 3d01ce822ec36d04a8b998e437d1fc8e
     m_Metadata:
       m_Items: []
+  - m_Id: 2149948473344
+    m_Localized: d22d19ce4225c98459890d21030bfac4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2334061641728
+    m_Localized: 0e666fad29b7cec49a93803a8753d230
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539616092160
+    m_Localized: b52dd026a56ab7344a514e2768e22ebc[Ayuda 1]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2688690044928
+    m_Localized: ae5686aa034fbb04bb864a4281e7290f[Salir 1]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876070576128
+    m_Localized: 82364d86660408e4393816fb588bb111
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3032815910912
+    m_Localized: 70ac5f30786c71f4a9e74a6f94281d3e[programadores]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3260621144064
+    m_Localized: 6f281096e1a470f45822117dbe4c8381
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

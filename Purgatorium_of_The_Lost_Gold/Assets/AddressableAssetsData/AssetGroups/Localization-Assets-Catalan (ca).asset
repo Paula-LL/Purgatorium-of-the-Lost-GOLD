@@ -17,8 +17,44 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 85a48840ba317db41bceb930779410c1
   m_SerializeEntries:
+  - m_GUID: 0832989723bf2194795636522b41a23a
+    m_Address: "Cap\xEDtol 1   Lux\xFAria"
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 141bfd686cd1bc9459c43b0f782825b9
+    m_Address: programadores catalan
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20619e3e8b2b47345b3a5d140a0ff373
+    m_Address: "Estad\xEDstiques"
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 211ea973bda5a914e8c3fce697d8c882
+    m_Address: Ajuda
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8aa01501ec9853040b9b5cae2e69387e
     m_Address: Opcions
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a61e735ad5ac34944b0f29436d7066bd
+    m_Address: artistas
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f28a3af65886aa7449554b46d4eb9c76
+    m_Address: Sortir
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ca

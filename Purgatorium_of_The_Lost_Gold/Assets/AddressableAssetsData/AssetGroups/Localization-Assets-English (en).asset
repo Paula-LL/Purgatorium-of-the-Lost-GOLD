@@ -17,6 +17,48 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 5892ef93a375e794fa51d2956f057571
   m_SerializeEntries:
+  - m_GUID: 41c28f668eb569f42980eedda6e6a245
+    m_Address: programadores ingles
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52122608256daa64fb72f4b0f3b4a4aa
+    m_Address: Exit
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 702e8b60b50ee8146909b94712933f85
+    m_Address: artistas ingles
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 848c801663980e84b872712d0d5c397d
+    m_Address: Help
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d3eb1d6d45c4ff4b923a1721a497f7f
+    m_Address: Statistics
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb60429b4894a3343b91e73c1f25ead0
+    m_Address: Chapter 1   Lust
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd08121d3b0da2841870a402a24cd977
+    m_Address: Settings
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e005236a6e1079240873021fa1ff5919
     m_Address: Start Game
     m_ReadOnly: 1

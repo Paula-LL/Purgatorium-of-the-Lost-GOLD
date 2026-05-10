@@ -23,9 +23,34 @@ MonoBehaviour:
     m_Key: MainMenu.Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 2334061641728
+    m_Key: MainMenu.Statistics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539616092160
+    m_Key: MainMenu.Help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2688690044928
+    m_Key: MainMenu.Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876070576128
+    m_Key: MainMenu.Chapter1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3032815910912
+    m_Key: MainMenu.Programmers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3260621144064
+    m_Key: MainMenu.Artists
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 6775653786142113796
+    - rid: 6775653786142113797
   m_KeyGenerator:
     rid: 6775653786142113792
   references:
@@ -47,5 +72,43 @@ MonoBehaviour:
         - m_KeyId: 2149948473344
           m_TableCodes:
           - ca
+          - es
+          - en
+        - m_KeyId: 2334061641728
+          m_TableCodes:
+          - es
+          - en
+          - ca
+        - m_KeyId: 2876070576128
+          m_TableCodes:
+          - en
+          - ca
+          - es
+        - m_KeyId: 3260621144064
+          m_TableCodes:
+          - ca
+          - en
+          - es
         m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 6775653786142113797
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 2539616092160
+          m_TableCodes:
+          - ca
+          - en
+          - es
+        - m_KeyId: 2688690044928
+          m_TableCodes:
+          - ca
+          - es
+          - en
+        - m_KeyId: 3032815910912
+          m_TableCodes:
+          - ca
+          - es
+          - en
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

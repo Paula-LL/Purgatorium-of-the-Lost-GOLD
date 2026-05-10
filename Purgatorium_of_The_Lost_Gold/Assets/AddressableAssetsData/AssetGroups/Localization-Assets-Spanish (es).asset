@@ -16,7 +16,49 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 5e52c724d3382624ca162272d01a58d8
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0e666fad29b7cec49a93803a8753d230
+    m_Address: "Estad\xEDsticas 1"
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f281096e1a470f45822117dbe4c8381
+    m_Address: artistas
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70ac5f30786c71f4a9e74a6f94281d3e
+    m_Address: programadores
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82364d86660408e4393816fb588bb111
+    m_Address: Capitulo 1   Lujuria
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae5686aa034fbb04bb864a4281e7290f
+    m_Address: Salir 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b52dd026a56ab7344a514e2768e22ebc
+    m_Address: Ayuda 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d22d19ce4225c98459890d21030bfac4
+    m_Address: Ajustes 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 08cab4cb098dfeb4d927074c2695cb78, type: 2}
   m_SchemaSet:
