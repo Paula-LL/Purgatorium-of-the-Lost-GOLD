@@ -169,7 +169,11 @@ public class Player_controller : MonoBehaviour
 
     private void SpawnDamageParticles()
     {
-        characterDamageParticlesInstance = Instantiate(characterDamageParticles, transform.position, Quaternion.identity);
+        if (characterDamageParticles != null)
+        {
+            characterDamageParticlesInstance = Instantiate(characterDamageParticles, transform.position, Quaternion.identity);
+            Destroy(characterDamageParticlesInstance.gameObject, 2f); // Destruye el clon después de 2 segundos
+        }
     }
 
     public void HealHealth(int amount)
