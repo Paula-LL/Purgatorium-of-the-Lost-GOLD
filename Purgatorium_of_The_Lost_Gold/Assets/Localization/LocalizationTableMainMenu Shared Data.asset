@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LocalizationTableMainMenu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: LocalizationTableMainMenu
+  m_TableCollectionNameGuidString: 6fad0628b44cb3e479fb6936219f631a
+  m_Entries:
+  - m_Id: 43006861312
+    m_Key: MainMenu.ClickToPlay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20713539411968
+    m_Key: MainMenu.ButtonPlay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20951780073472
+    m_Key: MainMenu.ButtonSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21056100802560
+    m_Key: MainMenu.ButtonStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21325198958592
+    m_Key: MainMenu.ButtonHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21449325191168
+    m_Key: MainMenu.ButtonExit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21677491134464
+    m_Key: MainMenu.Chapter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21804284944384
+    m_Key: MainMenu.ChapterName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22489500000256
+    m_Key: MainMenu.Programmers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22636002844672
+    m_Key: MainMenu.Artists
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23468911927296
+    m_Key: SettingsMenu.TitleSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23609072984064
+    m_Key: SettingsMenu.MasterSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23859984637952
+    m_Key: SettingsMenu.BGMSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24450072879104
+    m_Key: SettingsMenu.VideoQuality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24762636607488
+    m_Key: SettingsMenu.FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25346085265408
+    m_Key: SettingsMenu.ButtonReturn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634129092608
+    m_Key: StatisticsMenu.TitleStatistics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25888643653632
+    m_Key: StatisticsMenu.GamesPlayedStat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26122278969344
+    m_Key: StatisticsMenu.VictoriesStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26246673637376
+    m_Key: StatisticsMenu.EnemiesKilledStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30361575268352
+    m_Key: StatisticsMenu.BossesKilledStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31058597289984
+    m_Key: StatisticsMenu.DeathsStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31542548668416
+    m_Key: StatisticsMenu.TotalDmgInlifctedStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31978345242624
+    m_Key: StatisticsMenu.TotalDmgTackenStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32219144429568
+    m_Key: StatisticsMenu.GameTimeStats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33083196219392
+    m_Key: StatisticsMenu.ButtonReturn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33819984437248
+    m_Key: HelpMenu.TitleKeyboardHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35549165953024
+    m_Key: HelpMenu.KeyboardUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36902516858880
+    m_Key: HelpMenu.KeyboardDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37121878958080
+    m_Key: HelpMenu.KeyboardLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37598922317824
+    m_Key: HelpMenu.KeyboardRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38560361652224
+    m_Key: HelpMenu.KeyboardAttack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39419124424704
+    m_Key: HelpMenu.KeyboardDash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39723421179904
+    m_Key: HelpMenu.TitleControllerHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41308687736832
+    m_Key: HelpMen.ControllerMovement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44277076369408
+    m_Key: HelpMen.ControllerDash
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1279815169274282008
+  references:
+    version: 2
+    RefIds:
+    - rid: 1279815169274282008
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1777993071610

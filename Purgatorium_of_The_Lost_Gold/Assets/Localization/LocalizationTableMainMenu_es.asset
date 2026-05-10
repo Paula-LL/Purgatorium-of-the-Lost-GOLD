@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTableMainMenu_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 6fad0628b44cb3e479fb6936219f631a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 43006861312
+    m_Localized: Cick para empezar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20713539411968
+    m_Localized: Iniciar Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20951780073472
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21056100802560
+    m_Localized: Estadisticas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21325198958592
+    m_Localized: Ayuda
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21449325191168
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21677491134464
+    m_Localized: Capitulo 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21804284944384
+    m_Localized: Lujuria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22489500000256
+    m_Localized: 'Escrito por: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22636002844672
+    m_Localized: 'Ilustrado por: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23468911927296
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23609072984064
+    m_Localized: Sonido General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23859984637952
+    m_Localized: Musica de Fondo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24450072879104
+    m_Localized: Calidad de Video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24762636607488
+    m_Localized: Pantalla Completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25346085265408
+    m_Localized: "Volver al Men\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634129092608
+    m_Localized: "Estad\xEDsticas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25888643653632
+    m_Localized: 'Partidas jugadas: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26122278969344
+    m_Localized: 'Victorias: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26246673637376
+    m_Localized: 'Enemigos eliminados: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30361575268352
+    m_Localized: 'Bosses derrotados: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31058597289984
+    m_Localized: 'Muertes totales: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31542548668416
+    m_Localized: "Da\xF1o total inflingido: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31978345242624
+    m_Localized: "Da\xF1o total recibido: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32219144429568
+    m_Localized: 'Tiempo de juego: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33083196219392
+    m_Localized: "Volver al Men\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33819984437248
+    m_Localized: Controles de Teclado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35549165953024
+    m_Localized: 'Arriba: W'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36902516858880
+    m_Localized: 'Abajo: S'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37121878958080
+    m_Localized: 'Izquierda: A'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37598922317824
+    m_Localized: 'Derecha: D'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38560361652224
+    m_Localized: 'Ataque: Click izquierdo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39419124424704
+    m_Localized: 'Dash: Click derecho'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39723421179904
+    m_Localized: Controles de Mando
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41308687736832
+    m_Localized: 'Movimiento: Joystick izquierdo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44277076369408
+    m_Localized: "Dash: Bot\xF3n derecho"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
