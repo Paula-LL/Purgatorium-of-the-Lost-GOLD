@@ -17,8 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 32a08b0b37722f849bc94d3c3b2062a9
   m_SerializeEntries:
+  - m_GUID: 3d01ce822ec36d04a8b998e437d1fc8e
+    m_Address: Iniciar Partida 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ca
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fad0628b44cb3e479fb6936219f631a
     m_Address: Assets/Localization/LocalizationTableMainMenu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb56afd9906640f458d69cbbe22a8e8d
+    m_Address: Assets/Localization/MenuImages Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
