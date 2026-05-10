@@ -211,6 +211,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1185306056403853278, guid: 7e44fb460da361f47b84424fa9ee4dd6, type: 3}
   shootPoint: {fileID: 5481285219035442634}
   shootCooldown: 2
+  knockbackDistance: 5
+  blinkDuration: 0.5
 --- !u!95 &7029191728278328612
 Animator:
   serializedVersion: 5

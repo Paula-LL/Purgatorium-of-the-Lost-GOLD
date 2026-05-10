@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemigoDist : MonoBehaviour
 {
@@ -15,10 +15,18 @@ public class EnemigoDist : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shootCooldown = 2f;
 
+    [Header("Hit Feedback")]
+    [SerializeField] private float knockbackDistance = 1.5f;
+    [SerializeField] private float blinkDuration = 0.15f;
+
     private Transform player;
     private float nextShootTime;
     private bool playerDetected = false;
     private Animator animator;
+
+    private Coroutine hitEffectCoroutine;
+    private Renderer[] renderers;
+    private Color[] coloresOriginales;
 
     void Start()
     {
@@ -67,11 +75,57 @@ public class EnemigoDist : MonoBehaviour
         float finalDamage = stats.CalcularDanoRecibido(damage);
         stats.currentHealth -= (float)finalDamage;
         Debug.Log($"{gameObject.name} recibio {finalDamage} dano. Vida: {stats.currentHealth}/{stats.maxHealth}");
+
+        if (hitEffectCoroutine != null) StopCoroutine(hitEffectCoroutine);
+        hitEffectCoroutine = StartCoroutine(EfectoDano());
+
         if (stats.currentHealth <= 0)
         {
             animator.SetBool("isDead", true );
             EstadisticasJuego.RegistrarEnemigoCaido();
             Invoke("DestruirEnemigo", 3f);
+        }
+    }
+
+    private System.Collections.IEnumerator EfectoDano()
+    {
+        if (renderers == null) {
+            renderers = GetComponentsInChildren<Renderer>();
+            coloresOriginales = new Color[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++) {
+                if (renderers[i].material.HasProperty("_Color")) {
+                    coloresOriginales[i] = renderers[i].material.color;
+                }
+            }
+        }
+
+        Vector3 retroceso = -transform.forward * knockbackDistance;
+        if (player != null) {
+            retroceso = (transform.position - player.position).normalized * knockbackDistance;
+            retroceso.y = 0;
+        }
+        
+        float duracion = blinkDuration;
+        float elapsed = 0f;
+        Vector3 posInicial = transform.position;
+        Vector3 posFinal = transform.position + retroceso;
+        
+        for (int i = 0; i < renderers.Length; i++) {
+            if (renderers[i].material.HasProperty("_Color")) {
+                renderers[i].material.color = Color.red;
+            }
+        }
+        
+        while (elapsed < duracion) {
+            transform.position = Vector3.Lerp(posInicial, posFinal, elapsed / duracion);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        for (int i = 0; i < renderers.Length; i++) {
+            if (renderers[i].material.HasProperty("_Color")) {
+                renderers[i].material.color = coloresOriginales[i];
+            }
         }
     }
     public void DestruirEnemigo()

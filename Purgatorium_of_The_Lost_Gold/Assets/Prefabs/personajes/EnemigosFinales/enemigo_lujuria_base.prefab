@@ -294,6 +294,8 @@ MonoBehaviour:
   playerTag: Player
   detectionRange: 20
   timeBetweenAttacks: 1
+  knockbackDistance: 5
+  blinkDuration: 0.5
 --- !u!136 &-7335616318339372348
 CapsuleCollider:
   m_ObjectHideFlags: 0
