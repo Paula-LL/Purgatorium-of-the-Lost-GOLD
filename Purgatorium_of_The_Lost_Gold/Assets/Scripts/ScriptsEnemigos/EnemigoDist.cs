@@ -79,7 +79,7 @@ public class EnemigoDist : MonoBehaviour
         if (hitEffectCoroutine != null) StopCoroutine(hitEffectCoroutine);
         hitEffectCoroutine = StartCoroutine(EfectoDano());
 
-        if (stats.currentHealth <= 0)
+        if (stats.currentHealth <= 0 || transform.position.y< 10) 
         {
             animator.SetBool("isDead", true );
             EstadisticasJuego.RegistrarEnemigoCaido();

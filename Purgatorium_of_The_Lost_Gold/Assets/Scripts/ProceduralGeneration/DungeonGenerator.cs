@@ -635,7 +635,7 @@ public class DungeonGenerator : MonoBehaviour
         {
             float RNG = UnityEngine.Random.Range(0f, 100f);
 
-            Instantiate(instantiateCards[UnityEngine.Random.Range(0, instantiateCards.Count)], room.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            Instantiate(instantiateCards[UnityEngine.Random.Range(0, instantiateCards.Count)], room.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             cartaInstanciadaEnSala = false;
 
         }

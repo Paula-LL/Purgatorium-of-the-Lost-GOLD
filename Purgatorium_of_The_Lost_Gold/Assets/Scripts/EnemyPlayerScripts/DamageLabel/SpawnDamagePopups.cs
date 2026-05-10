@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class SpawnDamagePopups : MonoBehaviour
 {
@@ -63,6 +64,14 @@ public class SpawnDamagePopups : MonoBehaviour
         SpawnDamagePopup(damage, screenPosition, direction, isCrit);
 
     }
+    public void ContactDone(string text, Vector3 position, bool isCrit)
+    {
+        Vector3 screenPosition = mainCamera.WorldToScreenPoint(position);
+        screenPosition.z = 0;
+        bool direction = screenPosition.x < Screen.width * 0.5f;
+
+        SpawnTextPopUp(text, screenPosition, direction, isCrit);
+    }
     private void SpawnDamagePopup(float damage, Vector3 position, bool direction, bool isCrit)
     {
         DamageLabel damageLabel = _damageLabelPopupPool.Get();
@@ -71,6 +80,12 @@ public class SpawnDamagePopups : MonoBehaviour
     public void ReturnDamageLabelToPool(DamageLabel damageLabelId)
     {
         _damageLabelPopupPool.Release(damageLabelId);
+    }
+
+    private void SpawnTextPopUp (string text, Vector3 position, bool direction, bool isCrit)
+    {
+        DamageLabel damageLabel = _damageLabelPopupPool.Get();
+        damageLabel.DisplayText(text, position, direction, isCrit);
     }
 
 

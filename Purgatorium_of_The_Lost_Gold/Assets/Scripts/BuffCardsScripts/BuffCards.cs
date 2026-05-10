@@ -6,7 +6,10 @@ public abstract class BuffCards : MonoBehaviour
 {
     public virtual void PickUpCard(Collider collision)
     {
-        Destroy(gameObject);
+        SpawnDamagePopups.Instance.ContactDone(this.gameObject.name, transform.position, false);
+        Debug.Log("Carta conseguida");
+        Destroy(gameObject, 2f);
+        
         //collision.GetComponent<PlayerAttack>().AddModifier(cardsBuff);
         //collision.GetComponent<Player_controller>().AddModifier(cardsBuff2);
 

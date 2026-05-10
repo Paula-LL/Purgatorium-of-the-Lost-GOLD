@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TheLoversInvertedCard
       objectReference: {fileID: 0}
+    - target: {fileID: 8774490570457028120, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7773175307628517484, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4460014005574912691}
+    - targetCorrespondingSourceObject: {fileID: 7773175307628517484, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1518413694352799683}
   m_SourcePrefab: {fileID: 100100000, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
 --- !u!1 &668477980199031795 stripped
 GameObject:
@@ -98,3 +105,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loversInvertedDebuff: {fileID: 11400000, guid: 76e67ce837251db4f9ffd942091a125c, type: 2}
+--- !u!136 &1518413694352799683
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668477980199031795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

@@ -117,6 +117,25 @@ public class DamageLabel : MonoBehaviour
         _moveCoroutine = StartCoroutine(Move());
         StartCoroutine(ReturnDamageLabelToPool(_displayDuration));
     }
+    public void DisplayText(string text, Vector3 objectPosition, bool direction, bool isCrit)
+    {
+        transform.position = objectPosition;
+        _startPoinForVisualization = objectPosition;
+        _direction = direction;
+        
+        damageText.SetText(text);
+
+        damageText.color = normalFontColouur;
+        damageText.enableVertexGradient = isCrit;
+        damageText.fontSize = isCrit ? critFontSize : normalFontSize;
+
+        if (_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+        }
+        _moveCoroutine = StartCoroutine(Move());
+        StartCoroutine(ReturnDamageLabelToPool(_displayDuration));
+    }
     private IEnumerator Move()
     {
         float time = 0;

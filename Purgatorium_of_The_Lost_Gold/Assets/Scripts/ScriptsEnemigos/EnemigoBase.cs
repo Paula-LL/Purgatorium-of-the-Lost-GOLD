@@ -59,6 +59,11 @@ public class EnemigoBase : MonoBehaviour
         if (playerInRange)
             ProcessDamage();
 
+        if (transform.position.y < 10)
+        {
+            Die();
+        }
+
         UpdateAnimation(speed);
     }
 
