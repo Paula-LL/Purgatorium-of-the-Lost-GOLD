@@ -75,5 +75,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7773175307628517484, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7211194307869930808}
   m_SourcePrefab: {fileID: 100100000, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
+--- !u!1 &668477980199031795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7773175307628517484, guid: d845fe6c106967c4caf96f3f9318246c, type: 3}
+  m_PrefabInstance: {fileID: 7104768077415713695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7211194307869930808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668477980199031795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b93b31ef75add419a80cbdd103f23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cupsHealing: {fileID: 11400000, guid: 004b300b1c8866043ab05f8eb7c0ce15, type: 2}
