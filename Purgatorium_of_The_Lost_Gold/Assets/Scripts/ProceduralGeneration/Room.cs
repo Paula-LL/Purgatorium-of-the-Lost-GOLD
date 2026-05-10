@@ -42,6 +42,7 @@ public class Room : MonoBehaviour
         }
         cam.Priority = defaultCameraOnlinePriority;
         DungeonGenerator.s.onFinishFadeIn.AddListener(SpawnEnemiesInThisRoom);
+        
     }
 
     void SpawnEnemiesInThisRoom()

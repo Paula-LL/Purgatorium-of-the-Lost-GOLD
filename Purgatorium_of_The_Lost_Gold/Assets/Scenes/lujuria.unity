@@ -2051,6 +2051,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasFader: {fileID: 1786392994}
   enemigosNulosEnSala: 1
+  enemigosVencidosEnSala: 0
+  cartaInstanciadaEnSala: 0
   _dungeonRoomInstances: []
   roomPrefabs:
   - {fileID: 7986240178955837915, guid: 9c87676cadc5b3e4aa21de9bb4fb7b52, type: 3}
@@ -2062,6 +2064,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1182933668868045027, guid: 592d744548a4c434d9cc735679b667f0, type: 3}
   - {fileID: 5141632416708081520, guid: 06e64f2d0563a8b4fbe70edac73a6a45, type: 3}
+  instantiateCards:
+  - {fileID: 668477980199031795, guid: b78bf468d6ed7cc45bc1b01f8d3f0f7e, type: 3}
   TeletrasportadorBoss: {fileID: 4714376790268928048, guid: 92b873d21904d3e4b803ee6d69badeb9, type: 3}
   teletransportadorSeguro: 1
   onFinishFadeIn:

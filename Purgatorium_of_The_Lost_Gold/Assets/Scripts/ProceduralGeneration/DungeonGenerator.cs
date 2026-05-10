@@ -23,6 +23,9 @@ public class DungeonGenerator : MonoBehaviour
     public Image canvasFader;
     public bool enemigosNulosEnSala = true;
     List<GameObject> instantiatedEnemies = new List<GameObject>();
+    
+    
+    public bool cartaInstanciadaEnSala = true;
     #region Attributes
     private int maxRooms;
     private int nCurrentRooms;
@@ -37,12 +40,15 @@ public class DungeonGenerator : MonoBehaviour
     //public List<GameObject> colorIndicators;
     public int numberOfRooms;
     public List<GameObject> enemyPrefabs;
+    public List<GameObject> instantiateCards;
     public GameObject TeletrasportadorBoss;
     public bool teletransportadorSeguro = true;
+    public int enemigosRestantesEnSala;
     //private List<Enemy> _enemyInstances;
     #endregion
 
     [HideInInspector] public UnityEvent onFinishFadeIn = new UnityEvent();
+    
     public enum ROOM_DIRECTIONS { UP, RIGHT, DOWN, LEFT }
     public class DungeonRoom
     {
@@ -610,6 +616,7 @@ public class DungeonGenerator : MonoBehaviour
         if (instantiatedEnemies.Count == 0)
         {
             enemigosNulosEnSala = true;
+           
         }
         else
         {
@@ -617,4 +624,22 @@ public class DungeonGenerator : MonoBehaviour
         }
         return enemigosNulosEnSala;
     }
+    public int ReturnNumberOfEnemies(Room room)
+    {
+        instantiatedEnemies.RemoveAll((GameObject o) => o == null);
+        return instantiatedEnemies.Count;
+    }
+    public void SpawnCardInTheRoom(GameObject room)
+    {
+        if (instantiatedEnemies.Count == 1 && cartaInstanciadaEnSala == true)
+        {
+            float RNG = UnityEngine.Random.Range(0f, 100f);
+
+            Instantiate(instantiateCards[UnityEngine.Random.Range(0, instantiateCards.Count)], room.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            cartaInstanciadaEnSala = false;
+
+        }
+    }
+
+   
 }

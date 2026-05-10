@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class CardPickUp : MonoBehaviour
 {
-    public Animator anim;
+    public Animation anim;
+    private Camera camera;
+ 
+    private void Update()
+    {
+        camera = Camera.main;   
+    }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
-            anim.Play("marco|PlaneAction");
-            anim.Play("carta|PlaneAction");
-            Destroy(gameObject, 5f);
+            transform.LookAt(camera.transform.position);
+            transform.position = camera.transform.position - new Vector3(0,0, 2);
+            transform.position += new Vector3(0, -2, 0);
+            transform.rotation = Quaternion.Euler(camera.transform.rotation.x + 90, camera.transform.rotation.y + 180, camera.transform.rotation.z);
+            
+            
+            Debug.Log("La carta se ha tocado");
+            anim.Play();
+           
         }
     }
 }

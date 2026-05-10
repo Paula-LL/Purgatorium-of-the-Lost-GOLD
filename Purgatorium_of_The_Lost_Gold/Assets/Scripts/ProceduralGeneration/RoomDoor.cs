@@ -20,8 +20,10 @@ public class RoomDoor : MonoBehaviour
     private void Update()
     {
             DungeonGenerator.s.enemigosNulosEnSala = DungeonGenerator.s.CheckEnemiesInRoom(room);
+            DungeonGenerator.s.enemigosRestantesEnSala = DungeonGenerator.s.ReturnNumberOfEnemies(room);
             if (DungeonGenerator.s.enemigosNulosEnSala == true )
         {
+            
             GetComponent<Collider>().isTrigger = true;
         }
     }
@@ -42,6 +44,8 @@ public class RoomDoor : MonoBehaviour
                     StartCoroutine(DungeonGenerator.s.fadeInfadeOut());
                     StartCoroutine(teletranspDelay());
                     c.GetComponentInParent<Room>().OnEnterRoom();
+                    DungeonGenerator.s.cartaInstanciadaEnSala = true;
+                   
                 }
             }
            

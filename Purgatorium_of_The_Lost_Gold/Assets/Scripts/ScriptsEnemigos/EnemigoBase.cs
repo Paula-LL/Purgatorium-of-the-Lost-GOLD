@@ -180,7 +180,10 @@ public class EnemigoBase : MonoBehaviour
         EstadisticasJuego.RegistrarEnemigoCaido();
         if (animator != null)
             animator.SetTrigger("Die");
-
+        if (DungeonGenerator.s.enemigosRestantesEnSala == 1)
+        {
+            DungeonGenerator.s.SpawnCardInTheRoom(GetComponentInParent<Room>().GetActualRoom());
+        }
         Destroy(gameObject, 10f);
     }
 

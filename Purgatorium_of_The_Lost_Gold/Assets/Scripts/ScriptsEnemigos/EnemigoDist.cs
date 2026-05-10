@@ -84,6 +84,10 @@ public class EnemigoDist : MonoBehaviour
             animator.SetBool("isDead", true );
             EstadisticasJuego.RegistrarEnemigoCaido();
             Invoke("DestruirEnemigo", 3f);
+            if (DungeonGenerator.s.enemigosRestantesEnSala == 1)
+            {
+                DungeonGenerator.s.SpawnCardInTheRoom(GetComponentInParent<Room>().GetActualRoom());
+            }
         }
     }
 
