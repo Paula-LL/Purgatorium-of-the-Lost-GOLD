@@ -24,7 +24,7 @@ public class TeletransPregunta : MonoBehaviour
     public void DecidirNo()
     {
         Vector3 posDante = DantePlayer.transform.position;
-        posDante = posDante + new Vector3(-45, 0, 0);
+        posDante = posDante + new Vector3(45, 0, 0);
         DantePlayer.transform.position = posDante;
         canvasEntradaNivel.SetActive(false);
         

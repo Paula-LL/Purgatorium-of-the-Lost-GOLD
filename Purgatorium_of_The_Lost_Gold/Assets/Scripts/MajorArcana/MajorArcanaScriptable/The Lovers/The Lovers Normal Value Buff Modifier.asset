@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9407b38574de874cb5241eee84759a4, type: 3}
   m_Name: The Lovers Normal Value Buff Modifier
   m_EditorClassIdentifier: 
-  extraHealth: 2
+  extraHealth: 25

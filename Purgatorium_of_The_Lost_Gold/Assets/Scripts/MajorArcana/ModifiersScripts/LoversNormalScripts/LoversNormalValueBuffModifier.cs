@@ -10,7 +10,7 @@ public class LoversNormalValueBuffModifier : LoversNormalModifier
     public override void ApplyLoversNormalCardModifier(PlayerStats health)
     {
          //health.maxHealth += extraHealth;
-        health.maxHealth *= extraHealth;
+        health.maxHealth += extraHealth;
     }
 
 }

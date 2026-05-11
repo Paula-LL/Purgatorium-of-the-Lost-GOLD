@@ -1544,12 +1544,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    baseHealth: 10
-    maxHealth: 10
-    currentHealth: 10
+    baseHealth: 166
+    maxHealth: 166
+    currentHealth: 166
     defense: 0
-    baseDamage: 5
-    attackDamage: 5
+    baseDamage: 10
+    attackDamage: 10
     critChance: 0.1
     critMultiplier: 2
 --- !u!114 &1898247091
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   duracionRetorno: 1
   tiempoEntreAtaques: 3
   colliderDash: {fileID: 1365159566}
-  "da\xF1o": 1.5
+  "da\xF1o": 10
   boss: {fileID: 1898247085}
 --- !u!114 &1898247096
 MonoBehaviour:
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   tiempoActivoGolpe: 0.3
   tiempoEntreGolpes: 0.5
   tiempoEntreAtaques: 3
-  "da\xF1o": 1
+  "da\xF1o": 7
   boss: {fileID: 1898247085}
 --- !u!1 &2032414945
 GameObject:

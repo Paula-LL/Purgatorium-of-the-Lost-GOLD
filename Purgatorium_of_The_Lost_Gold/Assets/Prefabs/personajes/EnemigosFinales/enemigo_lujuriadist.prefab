@@ -196,12 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    baseHealth: 3
-    maxHealth: 3
-    currentHealth: 3
+    baseHealth: 20
+    maxHealth: 20
+    currentHealth: 20
     defense: 0
-    baseDamage: 1
-    attackDamage: 1
+    baseDamage: 3
+    attackDamage: 3
     critChance: 0
     critMultiplier: 2
     moveSpeed: 3

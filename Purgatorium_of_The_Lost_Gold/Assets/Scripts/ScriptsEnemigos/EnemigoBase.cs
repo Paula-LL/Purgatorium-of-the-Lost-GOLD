@@ -183,8 +183,7 @@ public class EnemigoBase : MonoBehaviour
         animator.SetBool("isDead", true);
         enemyList.Remove(this);
         EstadisticasJuego.RegistrarEnemigoCaido();
-        if (animator != null)
-            animator.SetTrigger("Die");
+        
         if (DungeonGenerator.s.enemigosRestantesEnSala == 1)
         {
             DungeonGenerator.s.SpawnCardInTheRoom(GetComponentInParent<Room>().GetActualRoom());

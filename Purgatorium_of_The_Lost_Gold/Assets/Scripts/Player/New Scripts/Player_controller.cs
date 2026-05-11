@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Player_controller;
 using static PlayerStats;
 /// <summary>
@@ -62,6 +63,11 @@ public class Player_controller : MonoBehaviour
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
         characterDashParticles.Stop();
+
+        if (SceneManager.GetActiveScene().name == "BossBattle")
+        {
+            currentPlayerStats = GuardarEstadisticas.Instance.estadisticasAGuardar;
+        }
     }
 
     //Enemy HP going past 0 (negative)

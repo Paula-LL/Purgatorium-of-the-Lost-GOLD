@@ -38,7 +38,7 @@ public class BossHealth : MonoBehaviour
     }
     private void Morir()
     {
-        
+        GuardarEstadisticas.Instance.estadisticasAGuardar = null;
         Debug.Log($"[BossHealth] {gameObject.name} ha muerto.");
         EstadisticasJuego.RegistrarBossCaido();
     }
