@@ -177,6 +177,37 @@ Transform:
   - {fileID: 3950283087468512233}
   m_Father: {fileID: 2204950526861087689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4145129712557677271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8294274139001208191}
+  m_Layer: 0
+  m_Name: ColliderBoundry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8294274139001208191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145129712557677271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2204950526861087689}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8006515742809619194
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +788,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 170df29489bcfa04fb9517789e2d6734, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8651522269402887857}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 170df29489bcfa04fb9517789e2d6734, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8294274139001208191}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 170df29489bcfa04fb9517789e2d6734, type: 3}
       insertIndex: -1
